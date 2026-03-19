@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Slop Machine — SaaSpocalypse Index</title>
-  <meta name="description" content="46 SaaS apps. One unhinged loop. Welcome to the SaaSpocalypse." />
+  <meta name="description" content="51 SaaS apps. One unhinged loop. Welcome to the SaaSpocalypse." />
   <meta property="og:title" content="The Slop Machine" />
-  <meta property="og:description" content="46 AI-powered micro-SaaS apps shipped at mass-production speed. The SaaSpocalypse is here." />
+  <meta property="og:description" content="51 AI-powered micro-SaaS apps shipped at mass-production speed. The SaaSpocalypse is here." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏭</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,29 +39,21 @@
       overflow-x: hidden;
     }
 
-    /* Scanline overlay */
     body::after {
       content: '';
       position: fixed;
       inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.03) 2px,
-        rgba(0, 0, 0, 0.03) 4px
-      );
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
       pointer-events: none;
       z-index: 999;
     }
 
-    /* Animated background grid */
     .bg-grid {
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255, 51, 102, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 51, 102, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(255,51,102,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,51,102,0.03) 1px, transparent 1px);
       background-size: 60px 60px;
       z-index: 0;
     }
@@ -74,7 +66,6 @@
       padding: 2rem 1.5rem 4rem;
     }
 
-    /* Hero */
     .hero {
       text-align: center;
       padding: 4rem 0 3rem;
@@ -84,14 +75,45 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 50%;
+      top: 0; left: 50%;
       transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
+      width: 600px; height: 600px;
       background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
       pointer-events: none;
     }
+
+    /* Language switcher */
+    .lang-switcher {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      z-index: 100;
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .lang-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.4rem 0.7rem;
+      border: none;
+      background: transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.05em;
+    }
+
+    .lang-btn:not(:last-child) {
+      border-right: 1px solid var(--border);
+    }
+
+    .lang-btn:hover { color: var(--text); background: var(--surface-hover); }
+    .lang-btn.active { color: var(--accent); background: var(--accent-glow); }
 
     .badge {
       display: inline-block;
@@ -100,11 +122,11 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--accent);
-      border: 1px solid rgba(255, 51, 102, 0.3);
+      border: 1px solid rgba(255,51,102,0.3);
       padding: 0.35rem 1rem;
       border-radius: 999px;
       margin-bottom: 1.5rem;
-      background: rgba(255, 51, 102, 0.05);
+      background: rgba(255,51,102,0.05);
     }
 
     h1 {
@@ -127,12 +149,8 @@
       line-height: 1.6;
     }
 
-    .subtitle strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
+    .subtitle strong { color: var(--accent); font-weight: 600; }
 
-    /* Stats bar */
     .stats {
       display: flex;
       justify-content: center;
@@ -141,9 +159,7 @@
       flex-wrap: wrap;
     }
 
-    .stat {
-      text-align: center;
-    }
+    .stat { text-align: center; }
 
     .stat-number {
       font-family: 'JetBrains Mono', monospace;
@@ -159,7 +175,6 @@
       letter-spacing: 0.1em;
     }
 
-    /* Filter */
     .filter-bar {
       display: flex;
       justify-content: center;
@@ -187,7 +202,6 @@
       background: var(--accent-glow);
     }
 
-    /* Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -213,9 +227,7 @@
     .card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 2px;
       background: linear-gradient(90deg, var(--card-accent, var(--accent)), transparent);
       opacity: 0;
@@ -224,13 +236,11 @@
 
     .card:hover {
       background: var(--surface-hover);
-      border-color: rgba(255, 51, 102, 0.2);
+      border-color: rgba(255,51,102,0.2);
       transform: translateY(-2px);
     }
 
-    .card:hover::before {
-      opacity: 1;
-    }
+    .card:hover::before { opacity: 1; }
 
     .card-header {
       display: flex;
@@ -243,7 +253,7 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
       color: var(--text-dim);
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255,255,255,0.04);
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
       white-space: nowrap;
@@ -258,25 +268,15 @@
       white-space: nowrap;
     }
 
-    .tag-ai { background: rgba(168, 85, 247, 0.15); color: var(--purple); }
-    .tag-dev { background: rgba(59, 130, 246, 0.15); color: var(--blue); }
-    .tag-marketing { background: rgba(249, 115, 22, 0.15); color: var(--orange); }
-    .tag-fun { background: rgba(0, 255, 136, 0.15); color: var(--green); }
-    .tag-tool { background: rgba(6, 182, 212, 0.15); color: var(--cyan); }
-    .tag-vision { background: rgba(255, 214, 10, 0.15); color: var(--yellow); }
+    .tag-ai { background: rgba(168,85,247,0.15); color: var(--purple); }
+    .tag-dev { background: rgba(59,130,246,0.15); color: var(--blue); }
+    .tag-marketing { background: rgba(249,115,22,0.15); color: var(--orange); }
+    .tag-fun { background: rgba(0,255,136,0.15); color: var(--green); }
+    .tag-tool { background: rgba(6,182,212,0.15); color: var(--cyan); }
+    .tag-vision { background: rgba(255,214,10,0.15); color: var(--yellow); }
 
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      line-height: 1.3;
-    }
-
-    .card-desc {
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      line-height: 1.5;
-      flex: 1;
-    }
+    .card-title { font-size: 1.05rem; font-weight: 600; line-height: 1.3; }
+    .card-desc { font-size: 0.8rem; color: var(--text-dim); line-height: 1.5; flex: 1; }
 
     .card-footer {
       display: flex;
@@ -286,23 +286,10 @@
       border-top: 1px solid var(--border);
     }
 
-    .card-repo {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--text-dim);
-    }
+    .card-repo { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-dim); }
+    .card-arrow { color: var(--accent); font-size: 0.9rem; transition: transform 0.2s; }
+    .card:hover .card-arrow { transform: translateX(3px); }
 
-    .card-arrow {
-      color: var(--accent);
-      font-size: 0.9rem;
-      transition: transform 0.2s;
-    }
-
-    .card:hover .card-arrow {
-      transform: translateX(3px);
-    }
-
-    /* Footer */
     footer {
       text-align: center;
       padding: 4rem 0 2rem;
@@ -311,10 +298,7 @@
       line-height: 1.8;
     }
 
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    footer a { color: var(--accent); text-decoration: none; }
 
     .manifesto {
       max-width: 500px;
@@ -335,164 +319,274 @@
       .grid { grid-template-columns: 1fr; }
       .stats { gap: 1.5rem; }
       .container { padding: 1rem 1rem 3rem; }
+      .lang-switcher { top: 0.75rem; right: 0.75rem; }
     }
   </style>
 </head>
 <body>
   <div class="bg-grid"></div>
+
+  <nav class="lang-switcher" id="langSwitcher">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="es">ES</button>
+    <button class="lang-btn" data-lang="pt">PT</button>
+    <button class="lang-btn" data-lang="fr">FR</button>
+  </nav>
+
   <div class="container">
     <header class="hero">
-      <div class="badge">transmission from the SaaSpocalypse</div>
-      <h1>The Slop Machine</h1>
-      <p class="subtitle">
-        <strong>51 micro-SaaS apps</strong> extruded at mass-production speed by one unhinged Ralph Loop.
-        No planning. No market research. No mercy.
-      </p>
+      <div class="badge" id="badge"></div>
+      <h1 id="title"></h1>
+      <p class="subtitle" id="subtitle"></p>
       <div class="stats">
         <div class="stat">
-          <div class="stat-number" id="count">51</div>
-          <div class="stat-label">Apps Shipped</div>
+          <div class="stat-number">51</div>
+          <div class="stat-label" id="statApps"></div>
         </div>
         <div class="stat">
           <div class="stat-number">$0</div>
-          <div class="stat-label">Budget</div>
+          <div class="stat-label" id="statBudget"></div>
         </div>
         <div class="stat">
           <div class="stat-number">∞</div>
-          <div class="stat-label">Slop Output</div>
+          <div class="stat-label" id="statSlop"></div>
         </div>
       </div>
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="ai">AI-Powered</button>
-        <button class="filter-btn" data-filter="dev">Dev Tools</button>
-        <button class="filter-btn" data-filter="marketing">Marketing</button>
-        <button class="filter-btn" data-filter="fun">Fun & Viral</button>
-        <button class="filter-btn" data-filter="tool">Utilities</button>
-        <button class="filter-btn" data-filter="vision">Vision AI</button>
-      </div>
+      <div class="filter-bar" id="filterBar"></div>
     </header>
 
     <main class="grid" id="grid"></main>
 
     <footer>
-      <div class="manifesto">
-        <span class="comment">// the SaaSpocalypse manifesto</span><br>
-        <span class="comment">// 1. ship before you think</span><br>
-        <span class="comment">// 2. one feature, not a platform</span><br>
-        <span class="comment">// 3. free tier or die</span><br>
-        <span class="comment">// 4. if it works, deploy it</span><br>
-        <span class="comment">// 5. the loop never stops</span><br>
-        <span class="comment">// 6. embrace the slop</span>
-      </div>
-      Built with reckless abandon by <a href="https://github.com/maxilylm" target="_blank">@maxilylm</a><br>
-      Powered by Groq, Vercel, and an alarming lack of impulse control
+      <div class="manifesto" id="manifesto"></div>
+      <span id="footerText"></span>
     </footer>
   </div>
 
   <script type="module">
+    // ── i18n strings ──────────────────────────────────────────
+    const i18n = {
+      en: {
+        badge: "transmission from the SaaSpocalypse",
+        title: "The Slop Machine",
+        subtitle: '<strong>51 micro-SaaS apps</strong> extruded at mass-production speed by one unhinged Ralph Loop. No planning. No market research. No mercy.',
+        statApps: "Apps Shipped",
+        statBudget: "Budget",
+        statSlop: "Slop Output",
+        filters: { all: "All", ai: "AI-Powered", dev: "Dev Tools", marketing: "Marketing", fun: "Fun & Viral", tool: "Utilities", vision: "Vision AI" },
+        tags: { ai: "AI-Powered", dev: "Dev Tool", marketing: "Marketing", fun: "Fun & Viral", tool: "Utility", vision: "Vision AI" },
+        manifesto: [
+          "// the SaaSpocalypse manifesto",
+          "// 1. ship before you think",
+          "// 2. one feature, not a platform",
+          "// 3. free tier or die",
+          "// 4. if it works, deploy it",
+          "// 5. the loop never stops",
+          "// 6. embrace the slop",
+        ],
+        footer: 'Built with reckless abandon by <a href="https://github.com/maxilylm" target="_blank">@maxilylm</a><br>Powered by Groq, Vercel, and an alarming lack of impulse control',
+      },
+      es: {
+        badge: "transmisión desde el SaaSpocalipsis",
+        title: "La Máquina del Churro",
+        subtitle: '<strong>51 micro-SaaS</strong> extruidos a velocidad industrial por un Ralph Loop desquiciado. Sin planificación. Sin estudio de mercado. Sin piedad.',
+        statApps: "Apps Lanzadas",
+        statBudget: "Presupuesto",
+        statSlop: "Producción de Churros",
+        filters: { all: "Todos", ai: "Con IA", dev: "Dev Tools", marketing: "Marketing", fun: "Diversión", tool: "Utilidades", vision: "Visión IA" },
+        tags: { ai: "Con IA", dev: "Dev Tool", marketing: "Marketing", fun: "Diversión", tool: "Utilidad", vision: "Visión IA" },
+        manifesto: [
+          "// el manifiesto del SaaSpocalipsis",
+          "// 1. lanzá antes de pensar",
+          "// 2. una función, no una plataforma",
+          "// 3. free tier o muerte",
+          "// 4. si funciona, deployealo",
+          "// 5. el loop nunca para",
+          "// 6. abrazá el churro",
+        ],
+        footer: 'Construido con abandono temerario por <a href="https://github.com/maxilylm" target="_blank">@maxilylm</a><br>Impulsado por Groq, Vercel, y una alarmante falta de autocontrol',
+      },
+      pt: {
+        badge: "transmissão do SaaSpocalipse",
+        title: "A Máquina de Gambiarra",
+        subtitle: '<strong>51 micro-SaaS</strong> extrudados em velocidade industrial por um Ralph Loop descontrolado. Sem planejamento. Sem pesquisa. Sem piedade.',
+        statApps: "Apps Lançados",
+        statBudget: "Orçamento",
+        statSlop: "Produção de Gambiarra",
+        filters: { all: "Todos", ai: "Com IA", dev: "Dev Tools", marketing: "Marketing", fun: "Diversão", tool: "Utilidades", vision: "Visão IA" },
+        tags: { ai: "Com IA", dev: "Dev Tool", marketing: "Marketing", fun: "Diversão", tool: "Utilidade", vision: "Visão IA" },
+        manifesto: [
+          "// o manifesto do SaaSpocalipse",
+          "// 1. lança antes de pensar",
+          "// 2. uma função, não uma plataforma",
+          "// 3. free tier ou morte",
+          "// 4. se funciona, faz deploy",
+          "// 5. o loop nunca para",
+          "// 6. abraça a gambiarra",
+        ],
+        footer: 'Construído com abandono imprudente por <a href="https://github.com/maxilylm" target="_blank">@maxilylm</a><br>Movido a Groq, Vercel, e uma alarmante falta de autocontrole',
+      },
+      fr: {
+        badge: "transmission depuis le SaaSpocalypse",
+        title: "La Machine à Bidouilles",
+        subtitle: '<strong>51 micro-SaaS</strong> extrudés à vitesse industrielle par une boucle Ralph déjantée. Pas de planification. Pas d\'étude de marché. Pas de pitié.',
+        statApps: "Apps Livrées",
+        statBudget: "Budget",
+        statSlop: "Production de Bidouilles",
+        filters: { all: "Tous", ai: "Avec IA", dev: "Dev Tools", marketing: "Marketing", fun: "Fun & Viral", tool: "Utilitaires", vision: "Vision IA" },
+        tags: { ai: "Avec IA", dev: "Dev Tool", marketing: "Marketing", fun: "Fun & Viral", tool: "Utilitaire", vision: "Vision IA" },
+        manifesto: [
+          "// le manifeste du SaaSpocalypse",
+          "// 1. livre avant de réfléchir",
+          "// 2. une fonction, pas une plateforme",
+          "// 3. free tier ou la mort",
+          "// 4. si ça marche, déploie-le",
+          "// 5. la boucle ne s'arrête jamais",
+          "// 6. embrasse la bidouille",
+        ],
+        footer: 'Construit avec un abandon téméraire par <a href="https://github.com/maxilylm" target="_blank">@maxilylm</a><br>Propulsé par Groq, Vercel, et un manque alarmant de maîtrise de soi',
+      },
+    };
+
+    // ── Ideas data with per-language names/titles/descs ──────
     const ideas = [
-      { n: 1,  name: "SpeakScore", title: "Voice Transcriber for Teacher Speech Evaluation", desc: "Groq Whisper + Llama 3.3 transcription & speech analysis for teachers", url: "https://01voicetranscriber.vercel.app", repo: "su-speakscore", tag: "ai" },
-      { n: 2,  name: "ReadMe.ai", title: "AI README Generator from Code", desc: "Paste code or describe your project, get a polished README instantly", url: "https://02aireadmegenerator.vercel.app", repo: "su-readmeai", tag: "dev" },
-      { n: 3,  name: "AffirmBot", title: "WhatsApp Daily Affirmations Bot", desc: "Twilio WhatsApp + Groq Llama 3.3 — positive vibes on autopilot", url: "https://03whatsappaffirmations.vercel.app", repo: "su-affirmbot", tag: "fun" },
-      { n: 4,  name: "FlashForge", title: "AI Flashcard Generator from Notes", desc: "Paste notes, get interactive flip cards for studying", url: "https://04aiflashcards.vercel.app", repo: "su-flashcards", tag: "ai" },
-      { n: 5,  name: "RegexWTF", title: "Regex Explainer & Tester", desc: "Paste regex, get plain English explanation + live test matches", url: "https://05regexexplainer.vercel.app", repo: "su-regex", tag: "dev" },
-      { n: 6,  name: "Repurpose.it", title: "AI Content Repurposer", desc: "Paste a blog post, get Twitter/LinkedIn/Instagram versions instantly", url: "https://06contentrepurposer.vercel.app", repo: "su-repurpose", tag: "marketing" },
-      { n: 7,  name: "ColdSnap", title: "AI Cold Email Generator for Freelancers", desc: "3 email variants — formal, casual, follow-up — tailored to your pitch", url: "https://07coldemailgenerator.vercel.app", repo: "su-coldemail", tag: "marketing" },
-      { n: 8,  name: "PolicyForge", title: "Privacy Policy Generator", desc: "Multi-step form generates a compliant privacy policy. No AI needed", url: "https://08privacypolicy.vercel.app", repo: "su-privacypolicy", tag: "tool" },
-      { n: 9,  name: "InvoiceVision", title: "AI Invoice Data Extractor", desc: "Upload invoice image, extract structured data via Groq vision", url: "https://09invoiceextractor.vercel.app", repo: "su-invoiceai", tag: "vision" },
-      { n: 10, name: "ChromaSnatch", title: "Color Palette Generator from Image", desc: "Upload image, extract dominant colors via Canvas API k-means clustering", url: "https://10colorpalette.vercel.app", repo: "su-colorpalette", tag: "tool" },
-      { n: 11, name: "JSONjoy", title: "JSON Formatter & Validator", desc: "Format, validate, tree view, JSONPath, diff tool — the dev Swiss army knife", url: "https://11jsonformatter.vercel.app", repo: "su-jsonformat", tag: "dev" },
-      { n: 12, name: "TL;DR Notes", title: "AI Meeting Notes Summarizer", desc: "Paste notes → TL;DR + decisions + action items + topics", url: "https://12meetingsummarizer.vercel.app", repo: "su-meetingnotes", tag: "ai" },
-      { n: 13, name: "CronGuru", title: "Cron Expression Explainer & Builder", desc: "Explain cron, show next 5 runs, visual builder + presets", url: "https://13cronexplainer.vercel.app", repo: "su-cronexplainer", tag: "dev" },
-      { n: 14, name: "LegalBot", title: "Terms of Service Generator", desc: "5-step form generates ToS. Companion to the Privacy Policy generator", url: "https://14tosgenerator.vercel.app", repo: "su-tosgen", tag: "tool" },
-      { n: 15, name: "SlideDeck.md", title: "Markdown to Presentation Converter", desc: "Write markdown, present fullscreen, export HTML. Split editor + preview", url: "https://15mdtoslides.vercel.app", repo: "su-mdslides", tag: "dev" },
-      { n: 16, name: "OGpeek", title: "Social Preview / OG Meta Checker", desc: "Preview your OG tags across Google, Twitter, LinkedIn, Facebook", url: "https://16ogpreview.vercel.app", repo: "su-ogpreview", tag: "marketing" },
-      { n: 17, name: "WordPulse", title: "Word Counter with Readability Score", desc: "Live stats + Flesch-Kincaid readability + keyword density. SEO magnet", url: "https://17wordcounter.vercel.app", repo: "su-wordcount", tag: "tool" },
-      { n: 18, name: "GradientLab", title: "CSS Gradient Generator", desc: "Linear/radial, color stops, presets, random, live preview + copy CSS", url: "https://18cssgradient.vercel.app", repo: "su-gradient", tag: "dev" },
-      { n: 19, name: "FaviCraft", title: "Favicon Generator from Text/Emoji", desc: "Text/emoji + colors + shape → Canvas API favicons at 5 sizes", url: "https://19favicongenerator.vercel.app", repo: "su-favicon", tag: "dev" },
-      { n: 20, name: "OutlineAI", title: "AI Blog Post Outline Generator", desc: "Topic + audience + tone → structured outline with H2/H3 hierarchy", url: "https://20blogoutline.vercel.app", repo: "su-blogoutline", tag: "marketing" },
-      { n: 21, name: "CommitWhisper", title: "AI Git Commit Message Generator", desc: "Paste a diff, get 3 conventional commit messages with type badges", url: "https://21commitmessage.vercel.app", repo: "su-commitmsg", tag: "dev" },
-      { n: 22, name: "TOONify", title: "JSON to TOON Converter", desc: "Convert JSON to Token-Oriented Object Notation — 30-60% fewer LLM tokens", url: "https://22toonconverter.vercel.app", repo: "su-toon", tag: "dev" },
-      { n: 23, name: "CodeSheriff", title: "AI Agentic Code Reviewer", desc: "4-step agentic review: language ID → bugs → security → improvements", url: "https://23codereviewer.vercel.app", repo: "su-codereview", tag: "ai" },
-      { n: 24, name: "FridgeChef", title: "AI Recipe from Fridge Photo", desc: "Snap your fridge → vision AI identifies ingredients → 3 recipes generated", url: "https://24recipefromfridge.vercel.app", repo: "su-fridgerecipe", tag: "vision" },
-      { n: 25, name: "QuizMaster", title: "AI Interactive Quiz Master", desc: "Topic or notes → 5 MC questions → answer → AI scores + explanations", url: "https://25quizmaster.vercel.app", repo: "su-quizmaster", tag: "ai" },
-      { n: 26, name: "RoastMyWeb", title: "AI Website Roast", desc: "Paste HTML → 4-dimensional roast: copy, SEO, a11y, UX. Humor included", url: "https://26websiteroast.vercel.app", repo: "su-webroast", tag: "fun" },
-      { n: 27, name: "Mini-Firecrawl", title: "AI Web Scraper — URL to Structured Data", desc: "URL + description → server fetches page → AI extracts JSON. Export CSV", url: "https://27webscraper.vercel.app", repo: "su-scraper", tag: "ai" },
-      { n: 28, name: "GhostChat", title: "AI Persona Chat Playground", desc: "Chat with Einstein, Sherlock, Yoda, Cleopatra — or create your own persona", url: "https://28personachat.vercel.app", repo: "su-personachat", tag: "fun" },
-      { n: 29, name: "CodeRosetta", title: "AI Code Translator", desc: "Paste code → translate between Python, JS, Rust, TypeScript. Side-by-side diff", url: "https://29codetranslator.vercel.app", repo: "su-codetranslate", tag: "dev" },
-      { n: 30, name: "LogoForge", title: "AI SVG Logo Generator", desc: "Describe your brand → 3 SVG logo concepts rendered live. Download vectors", url: "https://30svglogo.vercel.app", repo: "su-logogen", tag: "ai" },
-      { n: 31, name: "MoodHue", title: "AI Mood-to-Color Palette", desc: "\"Cyberpunk nightclub\" → 6-color palette with names, hex, CSS vars, Tailwind", url: "https://31moodpalette.vercel.app", repo: "su-moodpalette", tag: "ai" },
-      { n: 32, name: "DevScaffold", title: "AI Coding Framework Assistant", desc: "Pick CLI + project + features → downloadable ZIP with CLAUDE.md, hooks, skills", url: "https://32devscaffold.vercel.app", repo: "su-devscaffold", tag: "dev" },
-      { n: 33, name: "GitRoast", title: "AI Roast My GitHub Profile", desc: "Username → profile + repo analysis → comedic roast + Developer Personality Type", url: "https://33githubroast.vercel.app", repo: "su-gitroast", tag: "fun" },
-      { n: 34, name: "DebateArena", title: "AI Debate Arena", desc: "Pick 2 personas + topic → 5 rounds of real-time AI arguing. Audience vote", url: "https://34debatearena.vercel.app", repo: "su-debate", tag: "fun" },
-      { n: 35, name: "QuestForge", title: "AI Choose Your Adventure", desc: "Enter a premise → branching story, 3 choices per scene, 5-7 scenes deep", url: "https://35adventure.vercel.app", repo: "su-adventure", tag: "fun" },
-      { n: 36, name: "RetroFolio", title: "Retro Terminal Portfolio Generator", desc: "Fake terminal, CRT scanlines, ASCII art, matrix rain, keyboard sounds", url: "https://36retroterminal.vercel.app", repo: "su-retrofolio", tag: "fun" },
-      { n: 37, name: "LinkedInCraft", title: "LinkedIn Outreach Message Crafter", desc: "5 message variants: connection, DM, follow-up, InMail, engagement comment", url: "https://37linkedinoutreach.vercel.app", repo: "su-linkedincraft", tag: "marketing" },
-      { n: 38, name: "TikTokBrain", title: "AI TikTok/Reels Content Planner", desc: "7-day calendar with hooks, scripts, hashtags, posting times per platform", url: "https://38tiktokplanner.vercel.app", repo: "su-tiktokplan", tag: "marketing" },
-      { n: 39, name: "CampaignBlitz", title: "AI Social Media Campaign Generator", desc: "One input → 6 platform posts: LinkedIn, X, IG, TikTok, Facebook, Email", url: "https://39campaigngenerator.vercel.app", repo: "su-campaign", tag: "marketing" },
-      { n: 40, name: "CopyScope", title: "Marketing Copy Analyzer & Scorer", desc: "6-dimension radar chart scoring + AI rewrites for weak areas", url: "https://40copyanalyzer.vercel.app", repo: "su-copyanalyzer", tag: "marketing" },
-      { n: 41, name: "HookScript", title: "AI Video Script & Hook Generator", desc: "5 hook styles, timestamped script, storyboard, CTAs, teleprompter mode", url: "https://41videoscript.vercel.app", repo: "su-videoscript", tag: "marketing" },
-      { n: 42, name: "MemeBrain", title: "AI Meme Caption Generator", desc: "Upload image → vision AI generates 5 captions: Wholesome, Sarcastic, Gen-Z, Corporate, Absurdist", url: "https://42memecaptions.vercel.app", repo: "su-memecaption", tag: "vision" },
-      { n: 43, name: "NameForge", title: "AI Startup Name Generator", desc: "Describe idea → 10 names with taglines, domain suggestions, explanations", url: "https://43startupnames.vercel.app", repo: "su-startupnames", tag: "ai" },
-      { n: 44, name: "SubjectLab", title: "AI Email Subject Line Tester", desc: "Score 5 subject lines on open rate, spam risk, emotion, clarity. Winner declared", url: "https://44subjectlinetester.vercel.app", repo: "su-subjectlab", tag: "marketing" },
-      { n: 45, name: "BulletPro", title: "AI Resume Bullet Point Optimizer", desc: "Job desc + raw bullets → ATS-optimized rewrites with action verbs + metrics", url: "https://45resumeoptimizer.vercel.app", repo: "su-bulletpro", tag: "ai" },
-      { n: 46, name: "MoodMix", title: "AI Playlist Generator from Mood", desc: "Describe a mood → themed 15-song playlist with Spotify-style dark UI", url: "https://46playlistgenerator.vercel.app", repo: "su-moodmix", tag: "fun" },
-      { n: 47, name: "MVDExplorer", title: "Interactive Montevideo Map", desc: "Leaflet map with 8 municipios. Heatmap by metric: safety, property value, green space, transit, walkability, nightlife", url: "https://47montevideomap.vercel.app", repo: "su-mvdexplorer", tag: "tool" },
-      { n: 48, name: "DomainIQ", title: "AI Domain Name Valuator", desc: "Enter domain → value estimate, letter grade, 6 scoring factors, comparable sales", url: "https://48domainvaluator.vercel.app", repo: "su-domainiq", tag: "ai" },
-      { n: 49, name: "WireSpec", title: "AI Wireframe to Product Spec", desc: "Upload wireframe/sketch → Groq vision generates full product spec with components, user flow, tech notes", url: "https://49wireframedescriber.vercel.app", repo: "su-wirespec", tag: "vision" },
-      { n: 50, name: "QRForge", title: "QR Code Generator", desc: "Custom colors, size, error correction, margin. Presets for WiFi/vCard/URL. Download PNG", url: "https://50qrgenerator.vercel.app", repo: "su-qrforge", tag: "tool" },
-      { n: 51, name: "NegotiateAI", title: "AI Salary Negotiation Coach", desc: "Enter offer details → negotiation strategy, scripts, email templates, counter-offer range", url: "https://51salarycoach.vercel.app", repo: "su-negotiateai", tag: "ai" },
+      { n:1,  en: { name:"SpeakScore", title:"Voice Transcriber for Teacher Speech Evaluation", desc:"Groq Whisper + Llama 3.3 transcription & speech analysis for teachers" }, es: { name:"HablaScore", title:"Transcriptor de voz para evaluar docentes", desc:"Groq Whisper + Llama 3.3 para transcripción y análisis de discurso docente" }, pt: { name:"FalaScore", title:"Transcritor de voz para avaliação docente", desc:"Groq Whisper + Llama 3.3 para transcrição e análise de discurso" }, fr: { name:"ParleScore", title:"Transcripteur vocal pour évaluation enseignante", desc:"Groq Whisper + Llama 3.3 pour transcription et analyse du discours" }, url:"https://01voicetranscriber.vercel.app", repo:"su-speakscore", tag:"ai" },
+      { n:2,  en: { name:"ReadMe.ai", title:"AI README Generator from Code", desc:"Paste code or describe your project, get a polished README instantly" }, es: { name:"LéemeYa", title:"Generador de README con IA", desc:"Pegá tu código o describí tu proyecto, obtené un README pulido al instante" }, pt: { name:"LeiaMe.ai", title:"Gerador de README com IA", desc:"Cole seu código ou descreva o projeto, receba um README polido na hora" }, fr: { name:"LisezMoi.ai", title:"Générateur de README par IA", desc:"Collez votre code ou décrivez votre projet, obtenez un README soigné" }, url:"https://02aireadmegenerator.vercel.app", repo:"su-readmeai", tag:"dev" },
+      { n:3,  en: { name:"AffirmBot", title:"WhatsApp Daily Affirmations Bot", desc:"Twilio WhatsApp + Groq Llama 3.3 — positive vibes on autopilot" }, es: { name:"AfirmaBot", title:"Bot de afirmaciones diarias por WhatsApp", desc:"Twilio WhatsApp + Groq Llama 3.3 — buena onda en automático" }, pt: { name:"AfirmaBot", title:"Bot de afirmações diárias por WhatsApp", desc:"Twilio WhatsApp + Groq Llama 3.3 — boas vibrações no automático" }, fr: { name:"AffirmeBot", title:"Bot d'affirmations quotidiennes WhatsApp", desc:"Twilio WhatsApp + Groq Llama 3.3 — bonnes ondes en pilote automatique" }, url:"https://03whatsappaffirmations.vercel.app", repo:"su-affirmbot", tag:"fun" },
+      { n:4,  en: { name:"FlashForge", title:"AI Flashcard Generator from Notes", desc:"Paste notes, get interactive flip cards for studying" }, es: { name:"CartaForja", title:"Generador de flashcards con IA", desc:"Pegá tus apuntes, obtené tarjetas interactivas para estudiar" }, pt: { name:"CartaForja", title:"Gerador de flashcards com IA", desc:"Cole suas anotações, receba cartões interativos para estudar" }, fr: { name:"CarteForge", title:"Générateur de flashcards par IA", desc:"Collez vos notes, obtenez des cartes interactives pour étudier" }, url:"https://04aiflashcards.vercel.app", repo:"su-flashcards", tag:"ai" },
+      { n:5,  en: { name:"RegexWTF", title:"Regex Explainer & Tester", desc:"Paste regex, get plain English explanation + live test matches" }, es: { name:"RegexWTF", title:"Explicador y tester de Regex", desc:"Pegá una regex, obtené explicación en español + prueba en vivo" }, pt: { name:"RegexWTF", title:"Explicador e testador de Regex", desc:"Cole uma regex, receba explicação em português + teste ao vivo" }, fr: { name:"RegexWTF", title:"Explicateur et testeur de Regex", desc:"Collez une regex, obtenez une explication claire + test en direct" }, url:"https://05regexexplainer.vercel.app", repo:"su-regex", tag:"dev" },
+      { n:6,  en: { name:"Repurpose.it", title:"AI Content Repurposer", desc:"Paste a blog post, get Twitter/LinkedIn/Instagram versions instantly" }, es: { name:"Recicla.eso", title:"Reciclador de contenido con IA", desc:"Pegá un post de blog, obtené versiones para Twitter/LinkedIn/Instagram" }, pt: { name:"Recicla.isso", title:"Reciclador de conteúdo com IA", desc:"Cole um post de blog, receba versões para Twitter/LinkedIn/Instagram" }, fr: { name:"Recycle.ça", title:"Recycleur de contenu par IA", desc:"Collez un article de blog, obtenez des versions Twitter/LinkedIn/Instagram" }, url:"https://06contentrepurposer.vercel.app", repo:"su-repurpose", tag:"marketing" },
+      { n:7,  en: { name:"ColdSnap", title:"AI Cold Email Generator for Freelancers", desc:"3 email variants — formal, casual, follow-up — tailored to your pitch" }, es: { name:"MailFrío", title:"Generador de emails en frío con IA", desc:"3 variantes — formal, casual, seguimiento — adaptados a tu pitch" }, pt: { name:"MailFrio", title:"Gerador de cold emails com IA", desc:"3 variantes — formal, casual, follow-up — adaptados ao seu pitch" }, fr: { name:"MailGlacé", title:"Générateur de cold emails par IA", desc:"3 variantes — formel, décontracté, relance — adaptés à votre pitch" }, url:"https://07coldemailgenerator.vercel.app", repo:"su-coldemail", tag:"marketing" },
+      { n:8,  en: { name:"PolicyForge", title:"Privacy Policy Generator", desc:"Multi-step form generates a compliant privacy policy. No AI needed" }, es: { name:"PolíticaExpress", title:"Generador de política de privacidad", desc:"Formulario paso a paso genera una política de privacidad. Sin IA" }, pt: { name:"PolíticaExpress", title:"Gerador de política de privacidade", desc:"Formulário passo a passo gera uma política de privacidade. Sem IA" }, fr: { name:"PolitiqueExpress", title:"Générateur de politique de confidentialité", desc:"Formulaire par étapes génère une politique conforme. Sans IA" }, url:"https://08privacypolicy.vercel.app", repo:"su-privacypolicy", tag:"tool" },
+      { n:9,  en: { name:"InvoiceVision", title:"AI Invoice Data Extractor", desc:"Upload invoice image, extract structured data via Groq vision" }, es: { name:"FacturaVisión", title:"Extractor de datos de facturas con IA", desc:"Subí una imagen de factura, extraé datos estructurados con Groq vision" }, pt: { name:"NotaVisão", title:"Extrator de dados de notas fiscais com IA", desc:"Suba imagem de nota fiscal, extraia dados estruturados via Groq vision" }, fr: { name:"FactureVision", title:"Extracteur de données de factures par IA", desc:"Téléchargez une facture, extrayez des données structurées via Groq vision" }, url:"https://09invoiceextractor.vercel.app", repo:"su-invoiceai", tag:"vision" },
+      { n:10, en: { name:"ChromaSnatch", title:"Color Palette Generator from Image", desc:"Upload image, extract dominant colors via Canvas API k-means clustering" }, es: { name:"RobaColores", title:"Generador de paleta desde imagen", desc:"Subí una imagen, extraé colores dominantes con Canvas API y k-means" }, pt: { name:"RoubaCores", title:"Gerador de paleta a partir de imagem", desc:"Suba uma imagem, extraia cores dominantes via Canvas API k-means" }, fr: { name:"VoleCouleurs", title:"Générateur de palette depuis image", desc:"Téléchargez une image, extrayez les couleurs dominantes via Canvas API" }, url:"https://10colorpalette.vercel.app", repo:"su-colorpalette", tag:"tool" },
+      { n:11, en: { name:"JSONjoy", title:"JSON Formatter & Validator", desc:"Format, validate, tree view, JSONPath, diff tool — the dev Swiss army knife" }, es: { name:"JSONjoy", title:"Formateador y validador JSON", desc:"Formatear, validar, árbol, JSONPath, diff — la navaja suiza del dev" }, pt: { name:"JSONjoy", title:"Formatador e validador JSON", desc:"Formatar, validar, árvore, JSONPath, diff — o canivete suíço do dev" }, fr: { name:"JSONjoy", title:"Formateur et validateur JSON", desc:"Formater, valider, arborescence, JSONPath, diff — le couteau suisse du dev" }, url:"https://11jsonformatter.vercel.app", repo:"su-jsonformat", tag:"dev" },
+      { n:12, en: { name:"TL;DR Notes", title:"AI Meeting Notes Summarizer", desc:"Paste notes → TL;DR + decisions + action items + topics" }, es: { name:"ResumenExpress", title:"Resumidor de notas de reunión con IA", desc:"Pegá notas → TL;DR + decisiones + tareas + temas" }, pt: { name:"ResumoExpress", title:"Resumidor de notas de reunião com IA", desc:"Cole notas → TL;DR + decisões + tarefas + tópicos" }, fr: { name:"RésuméExpress", title:"Résumeur de notes de réunion par IA", desc:"Collez des notes → TL;DR + décisions + actions + sujets" }, url:"https://12meetingsummarizer.vercel.app", repo:"su-meetingnotes", tag:"ai" },
+      { n:13, en: { name:"CronGuru", title:"Cron Expression Explainer & Builder", desc:"Explain cron, show next 5 runs, visual builder + presets" }, es: { name:"CronGurú", title:"Explicador y constructor de expresiones cron", desc:"Explicar cron, mostrar próximas 5 ejecuciones, constructor visual" }, pt: { name:"CronGuru", title:"Explicador e construtor de expressões cron", desc:"Explicar cron, mostrar próximas 5 execuções, construtor visual" }, fr: { name:"CronGourou", title:"Explicateur et constructeur d'expressions cron", desc:"Expliquer cron, afficher les 5 prochaines exécutions, constructeur visuel" }, url:"https://13cronexplainer.vercel.app", repo:"su-cronexplainer", tag:"dev" },
+      { n:14, en: { name:"LegalBot", title:"Terms of Service Generator", desc:"5-step form generates ToS. Companion to the Privacy Policy generator" }, es: { name:"LegalBot", title:"Generador de términos de servicio", desc:"Formulario de 5 pasos genera ToS. Complemento del generador de privacidad" }, pt: { name:"LegalBot", title:"Gerador de termos de serviço", desc:"Formulário de 5 passos gera ToS. Complemento do gerador de privacidade" }, fr: { name:"LegalBot", title:"Générateur de conditions d'utilisation", desc:"Formulaire en 5 étapes génère des CGU. Complément du générateur de confidentialité" }, url:"https://14tosgenerator.vercel.app", repo:"su-tosgen", tag:"tool" },
+      { n:15, en: { name:"SlideDeck.md", title:"Markdown to Presentation Converter", desc:"Write markdown, present fullscreen, export HTML. Split editor + preview" }, es: { name:"Diapositiva.md", title:"Convertidor de Markdown a presentación", desc:"Escribí markdown, presentá en fullscreen, exportá HTML. Editor dividido" }, pt: { name:"Slide.md", title:"Conversor de Markdown para apresentação", desc:"Escreva markdown, apresente em fullscreen, exporte HTML. Editor dividido" }, fr: { name:"Diapo.md", title:"Convertisseur Markdown en présentation", desc:"Écrivez en markdown, présentez en plein écran, exportez HTML" }, url:"https://15mdtoslides.vercel.app", repo:"su-mdslides", tag:"dev" },
+      { n:16, en: { name:"OGpeek", title:"Social Preview / OG Meta Checker", desc:"Preview your OG tags across Google, Twitter, LinkedIn, Facebook" }, es: { name:"OGpeek", title:"Vista previa social / Checker de OG Meta", desc:"Previsualizá tus OG tags en Google, Twitter, LinkedIn, Facebook" }, pt: { name:"OGpeek", title:"Pré-visualização social / Checker de OG Meta", desc:"Pré-visualize suas OG tags no Google, Twitter, LinkedIn, Facebook" }, fr: { name:"OGpeek", title:"Aperçu social / Vérificateur de méta OG", desc:"Prévisualisez vos tags OG sur Google, Twitter, LinkedIn, Facebook" }, url:"https://16ogpreview.vercel.app", repo:"su-ogpreview", tag:"marketing" },
+      { n:17, en: { name:"WordPulse", title:"Word Counter with Readability Score", desc:"Live stats + Flesch-Kincaid readability + keyword density. SEO magnet" }, es: { name:"PalabraPulso", title:"Contador de palabras con score de legibilidad", desc:"Stats en vivo + legibilidad Flesch-Kincaid + densidad de keywords. SEO" }, pt: { name:"PalavraPulso", title:"Contador de palavras com score de legibilidade", desc:"Stats ao vivo + legibilidade Flesch-Kincaid + densidade de keywords" }, fr: { name:"MotPulse", title:"Compteur de mots avec score de lisibilité", desc:"Stats en direct + lisibilité Flesch-Kincaid + densité de mots-clés" }, url:"https://17wordcounter.vercel.app", repo:"su-wordcount", tag:"tool" },
+      { n:18, en: { name:"GradientLab", title:"CSS Gradient Generator", desc:"Linear/radial, color stops, presets, random, live preview + copy CSS" }, es: { name:"DegradadoLab", title:"Generador de gradientes CSS", desc:"Lineal/radial, paradas de color, presets, aleatorio, preview + copiar CSS" }, pt: { name:"DegradadoLab", title:"Gerador de gradientes CSS", desc:"Linear/radial, paradas de cor, presets, aleatório, preview + copiar CSS" }, fr: { name:"DégradéLab", title:"Générateur de dégradés CSS", desc:"Linéaire/radial, arrêts de couleur, presets, aléatoire, aperçu + copier CSS" }, url:"https://18cssgradient.vercel.app", repo:"su-gradient", tag:"dev" },
+      { n:19, en: { name:"FaviCraft", title:"Favicon Generator from Text/Emoji", desc:"Text/emoji + colors + shape → Canvas API favicons at 5 sizes" }, es: { name:"FaviCraft", title:"Generador de favicon desde texto/emoji", desc:"Texto/emoji + colores + forma → favicons Canvas API en 5 tamaños" }, pt: { name:"FaviCraft", title:"Gerador de favicon a partir de texto/emoji", desc:"Texto/emoji + cores + forma → favicons Canvas API em 5 tamanhos" }, fr: { name:"FaviCraft", title:"Générateur de favicon depuis texte/emoji", desc:"Texte/emoji + couleurs + forme → favicons Canvas API en 5 tailles" }, url:"https://19favicongenerator.vercel.app", repo:"su-favicon", tag:"dev" },
+      { n:20, en: { name:"OutlineAI", title:"AI Blog Post Outline Generator", desc:"Topic + audience + tone → structured outline with H2/H3 hierarchy" }, es: { name:"EsquemaIA", title:"Generador de esquema de blog con IA", desc:"Tema + audiencia + tono → esquema estructurado con jerarquía H2/H3" }, pt: { name:"EsquemaIA", title:"Gerador de esquema de blog com IA", desc:"Tema + audiência + tom → esquema estruturado com hierarquia H2/H3" }, fr: { name:"PlanIA", title:"Générateur de plan d'article par IA", desc:"Sujet + audience + ton → plan structuré avec hiérarchie H2/H3" }, url:"https://20blogoutline.vercel.app", repo:"su-blogoutline", tag:"marketing" },
+      { n:21, en: { name:"CommitWhisper", title:"AI Git Commit Message Generator", desc:"Paste a diff, get 3 conventional commit messages with type badges" }, es: { name:"CommitSusurro", title:"Generador de mensajes de commit con IA", desc:"Pegá un diff, obtené 3 mensajes de commit convencionales con badges" }, pt: { name:"CommitSussurro", title:"Gerador de mensagens de commit com IA", desc:"Cole um diff, receba 3 mensagens de commit convencionais com badges" }, fr: { name:"CommitMurmure", title:"Générateur de messages de commit par IA", desc:"Collez un diff, obtenez 3 messages de commit conventionnels avec badges" }, url:"https://21commitmessage.vercel.app", repo:"su-commitmsg", tag:"dev" },
+      { n:22, en: { name:"TOONify", title:"JSON to TOON Converter", desc:"Convert JSON to Token-Oriented Object Notation — 30-60% fewer LLM tokens" }, es: { name:"TOONify", title:"Convertidor de JSON a TOON", desc:"Convertí JSON a Token-Oriented Object Notation — 30-60% menos tokens LLM" }, pt: { name:"TOONify", title:"Conversor de JSON para TOON", desc:"Converta JSON para Token-Oriented Object Notation — 30-60% menos tokens LLM" }, fr: { name:"TOONify", title:"Convertisseur JSON vers TOON", desc:"Convertir JSON en Token-Oriented Object Notation — 30-60% moins de tokens LLM" }, url:"https://22toonconverter.vercel.app", repo:"su-toon", tag:"dev" },
+      { n:23, en: { name:"CodeSheriff", title:"AI Agentic Code Reviewer", desc:"4-step agentic review: language ID → bugs → security → improvements" }, es: { name:"CódigoSheriff", title:"Revisor de código agéntico con IA", desc:"Revisión agéntica en 4 pasos: lenguaje → bugs → seguridad → mejoras" }, pt: { name:"CódigoSheriff", title:"Revisor de código agêntico com IA", desc:"Revisão agêntica em 4 passos: linguagem → bugs → segurança → melhorias" }, fr: { name:"CodeShérif", title:"Réviseur de code agentique par IA", desc:"Revue agentique en 4 étapes : langage → bugs → sécurité → améliorations" }, url:"https://23codereviewer.vercel.app", repo:"su-codereview", tag:"ai" },
+      { n:24, en: { name:"FridgeChef", title:"AI Recipe from Fridge Photo", desc:"Snap your fridge → vision AI identifies ingredients → 3 recipes generated" }, es: { name:"HelaDelicias", title:"Recetas IA desde foto de la heladera", desc:"Sacale foto a tu heladera → IA identifica ingredientes → 3 recetas" }, pt: { name:"GelaDelicias", title:"Receitas IA a partir de foto da geladeira", desc:"Tire foto da geladeira → IA identifica ingredientes → 3 receitas" }, fr: { name:"FrigoDélices", title:"Recettes IA depuis photo du frigo", desc:"Photographiez votre frigo → l'IA identifie les ingrédients → 3 recettes" }, url:"https://24recipefromfridge.vercel.app", repo:"su-fridgerecipe", tag:"vision" },
+      { n:25, en: { name:"QuizMaster", title:"AI Interactive Quiz Master", desc:"Topic or notes → 5 MC questions → answer → AI scores + explanations" }, es: { name:"QuizMaestro", title:"Maestro de quizzes interactivo con IA", desc:"Tema o apuntes → 5 preguntas MC → respondé → IA puntúa + explica" }, pt: { name:"QuizMestre", title:"Mestre de quizzes interativo com IA", desc:"Tema ou anotações → 5 perguntas MC → responda → IA pontua + explica" }, fr: { name:"QuizMaître", title:"Maître de quiz interactif par IA", desc:"Sujet ou notes → 5 questions QCM → répondez → l'IA note + explique" }, url:"https://25quizmaster.vercel.app", repo:"su-quizmaster", tag:"ai" },
+      { n:26, en: { name:"RoastMyWeb", title:"AI Website Roast", desc:"Paste HTML → 4-dimensional roast: copy, SEO, a11y, UX. Humor included" }, es: { name:"AsáMiWeb", title:"Asado de tu sitio web con IA", desc:"Pegá HTML → asado en 4 dimensiones: copy, SEO, a11y, UX. Con humor" }, pt: { name:"TorraMeuSite", title:"Torra do seu site com IA", desc:"Cole HTML → torra em 4 dimensões: copy, SEO, a11y, UX. Com humor" }, fr: { name:"GrillMonSite", title:"Grillage de votre site web par IA", desc:"Collez du HTML → grillage en 4 dimensions : copy, SEO, a11y, UX" }, url:"https://26websiteroast.vercel.app", repo:"su-webroast", tag:"fun" },
+      { n:27, en: { name:"Mini-Firecrawl", title:"AI Web Scraper — URL to Structured Data", desc:"URL + description → server fetches page → AI extracts JSON. Export CSV" }, es: { name:"Mini-Araña", title:"Web scraper IA — URL a datos estructurados", desc:"URL + descripción → server trae la página → IA extrae JSON. Exportar CSV" }, pt: { name:"Mini-Aranha", title:"Web scraper IA — URL para dados estruturados", desc:"URL + descrição → server busca a página → IA extrai JSON. Exportar CSV" }, fr: { name:"Mini-Araignée", title:"Web scraper IA — URL vers données structurées", desc:"URL + description → le serveur récupère la page → l'IA extrait du JSON" }, url:"https://27webscraper.vercel.app", repo:"su-scraper", tag:"ai" },
+      { n:28, en: { name:"GhostChat", title:"AI Persona Chat Playground", desc:"Chat with Einstein, Sherlock, Yoda, Cleopatra — or create your own persona" }, es: { name:"CharlaFantasma", title:"Chat con personajes históricos con IA", desc:"Charlá con Einstein, Sherlock, Yoda, Cleopatra — o creá tu propio personaje" }, pt: { name:"PapoFantasma", title:"Chat com personagens históricos com IA", desc:"Converse com Einstein, Sherlock, Yoda, Cleopatra — ou crie seu personagem" }, fr: { name:"CauseFantôme", title:"Chat avec personnages historiques par IA", desc:"Discutez avec Einstein, Sherlock, Yoda, Cléopâtre — ou créez le vôtre" }, url:"https://28personachat.vercel.app", repo:"su-personachat", tag:"fun" },
+      { n:29, en: { name:"CodeRosetta", title:"AI Code Translator", desc:"Paste code → translate between Python, JS, Rust, TypeScript. Side-by-side diff" }, es: { name:"CódigoRosetta", title:"Traductor de código con IA", desc:"Pegá código → traducilo entre Python, JS, Rust, TypeScript. Diff lado a lado" }, pt: { name:"CódigoRosetta", title:"Tradutor de código com IA", desc:"Cole código → traduza entre Python, JS, Rust, TypeScript. Diff lado a lado" }, fr: { name:"CodeRosette", title:"Traducteur de code par IA", desc:"Collez du code → traduisez entre Python, JS, Rust, TypeScript. Diff côte à côte" }, url:"https://29codetranslator.vercel.app", repo:"su-codetranslate", tag:"dev" },
+      { n:30, en: { name:"LogoForge", title:"AI SVG Logo Generator", desc:"Describe your brand → 3 SVG logo concepts rendered live. Download vectors" }, es: { name:"LogoForja", title:"Generador de logos SVG con IA", desc:"Describí tu marca → 3 conceptos de logo SVG en vivo. Descargá vectores" }, pt: { name:"LogoForja", title:"Gerador de logos SVG com IA", desc:"Descreva sua marca → 3 conceitos de logo SVG ao vivo. Baixe vetores" }, fr: { name:"LogoForge", title:"Générateur de logos SVG par IA", desc:"Décrivez votre marque → 3 concepts de logo SVG en direct. Téléchargez" }, url:"https://30svglogo.vercel.app", repo:"su-logogen", tag:"ai" },
+      { n:31, en: { name:"MoodHue", title:"AI Mood-to-Color Palette", desc:"\"Cyberpunk nightclub\" → 6-color palette with names, hex, CSS vars, Tailwind" }, es: { name:"VibraColor", title:"Paleta de colores desde estado de ánimo con IA", desc:"\"Boliche cyberpunk\" → paleta de 6 colores con nombres, hex, CSS, Tailwind" }, pt: { name:"VibraCor", title:"Paleta de cores a partir do humor com IA", desc:"\"Balada cyberpunk\" → paleta de 6 cores com nomes, hex, CSS, Tailwind" }, fr: { name:"HumeurCouleur", title:"Palette de couleurs depuis l'humeur par IA", desc:"\"Boîte cyberpunk\" → palette 6 couleurs avec noms, hex, CSS, Tailwind" }, url:"https://31moodpalette.vercel.app", repo:"su-moodpalette", tag:"ai" },
+      { n:32, en: { name:"DevScaffold", title:"AI Coding Framework Assistant", desc:"Pick CLI + project + features → downloadable ZIP with CLAUDE.md, hooks, skills" }, es: { name:"DevAndamio", title:"Asistente de framework para programar", desc:"Elegí CLI + proyecto + features → ZIP descargable con CLAUDE.md, hooks, skills" }, pt: { name:"DevAndaime", title:"Assistente de framework para programar", desc:"Escolha CLI + projeto + features → ZIP baixável com CLAUDE.md, hooks, skills" }, fr: { name:"DevÉchafaud", title:"Assistant de framework de développement", desc:"Choisissez CLI + projet + fonctionnalités → ZIP avec CLAUDE.md, hooks, skills" }, url:"https://32devscaffold.vercel.app", repo:"su-devscaffold", tag:"dev" },
+      { n:33, en: { name:"GitRoast", title:"AI Roast My GitHub Profile", desc:"Username → profile + repo analysis → comedic roast + Developer Personality Type" }, es: { name:"GitAsado", title:"Asado de tu perfil de GitHub con IA", desc:"Username → análisis de perfil + repos → asado cómico + Tipo de Dev" }, pt: { name:"GitTorra", title:"Torra do seu perfil GitHub com IA", desc:"Username → análise de perfil + repos → torra cômica + Tipo de Dev" }, fr: { name:"GitGrillade", title:"Grillage de votre profil GitHub par IA", desc:"Username → analyse du profil + repos → grillage comique + Type de Dev" }, url:"https://33githubroast.vercel.app", repo:"su-gitroast", tag:"fun" },
+      { n:34, en: { name:"DebateArena", title:"AI Debate Arena", desc:"Pick 2 personas + topic → 5 rounds of real-time AI arguing. Audience vote" }, es: { name:"ArenaDebate", title:"Arena de debates con IA", desc:"Elegí 2 personajes + tema → 5 rondas de debate IA en tiempo real. Voto del público" }, pt: { name:"ArenaDebate", title:"Arena de debates com IA", desc:"Escolha 2 personagens + tema → 5 rodadas de debate IA em tempo real. Voto do público" }, fr: { name:"ArèneDébat", title:"Arène de débats par IA", desc:"Choisissez 2 personnages + sujet → 5 rounds de débat IA en temps réel. Vote du public" }, url:"https://34debatearena.vercel.app", repo:"su-debate", tag:"fun" },
+      { n:35, en: { name:"QuestForge", title:"AI Choose Your Adventure", desc:"Enter a premise → branching story, 3 choices per scene, 5-7 scenes deep" }, es: { name:"AventuraForja", title:"Elegí tu aventura con IA", desc:"Escribí una premisa → historia ramificada, 3 opciones por escena, 5-7 escenas" }, pt: { name:"AventuraForja", title:"Escolha sua aventura com IA", desc:"Escreva uma premissa → história ramificada, 3 opções por cena, 5-7 cenas" }, fr: { name:"AventureForge", title:"Choisissez votre aventure par IA", desc:"Entrez un pitch → histoire à branches, 3 choix par scène, 5-7 scènes" }, url:"https://35adventure.vercel.app", repo:"su-adventure", tag:"fun" },
+      { n:36, en: { name:"RetroFolio", title:"Retro Terminal Portfolio Generator", desc:"Fake terminal, CRT scanlines, ASCII art, matrix rain, keyboard sounds" }, es: { name:"RetroFolio", title:"Generador de portfolio terminal retro", desc:"Terminal falsa, scanlines CRT, ASCII art, lluvia matrix, sonidos de teclado" }, pt: { name:"RetroFolio", title:"Gerador de portfólio terminal retrô", desc:"Terminal falso, scanlines CRT, ASCII art, chuva matrix, sons de teclado" }, fr: { name:"RétroFolio", title:"Générateur de portfolio terminal rétro", desc:"Faux terminal, scanlines CRT, ASCII art, pluie matrix, sons de clavier" }, url:"https://36retroterminal.vercel.app", repo:"su-retrofolio", tag:"fun" },
+      { n:37, en: { name:"LinkedInCraft", title:"LinkedIn Outreach Message Crafter", desc:"5 message variants: connection, DM, follow-up, InMail, engagement comment" }, es: { name:"LinkedInArte", title:"Creador de mensajes de LinkedIn", desc:"5 variantes: conexión, DM, seguimiento, InMail, comentario de engagement" }, pt: { name:"LinkedInArte", title:"Criador de mensagens de LinkedIn", desc:"5 variantes: conexão, DM, follow-up, InMail, comentário de engagement" }, fr: { name:"LinkedInArt", title:"Créateur de messages LinkedIn", desc:"5 variantes : connexion, DM, relance, InMail, commentaire d'engagement" }, url:"https://37linkedinoutreach.vercel.app", repo:"su-linkedincraft", tag:"marketing" },
+      { n:38, en: { name:"TikTokBrain", title:"AI TikTok/Reels Content Planner", desc:"7-day calendar with hooks, scripts, hashtags, posting times per platform" }, es: { name:"TikTokCerebro", title:"Planificador de contenido TikTok/Reels con IA", desc:"Calendario de 7 días con hooks, guiones, hashtags, horarios por plataforma" }, pt: { name:"TikTokCérebro", title:"Planejador de conteúdo TikTok/Reels com IA", desc:"Calendário de 7 dias com hooks, roteiros, hashtags, horários por plataforma" }, fr: { name:"TikTokCerveau", title:"Planificateur de contenu TikTok/Reels par IA", desc:"Calendrier 7 jours avec accroches, scripts, hashtags, horaires par plateforme" }, url:"https://38tiktokplanner.vercel.app", repo:"su-tiktokplan", tag:"marketing" },
+      { n:39, en: { name:"CampaignBlitz", title:"AI Social Media Campaign Generator", desc:"One input → 6 platform posts: LinkedIn, X, IG, TikTok, Facebook, Email" }, es: { name:"CampañaBlitz", title:"Generador de campañas para redes con IA", desc:"Un input → 6 posts: LinkedIn, X, IG, TikTok, Facebook, Email" }, pt: { name:"CampanhaBlitz", title:"Gerador de campanhas para redes com IA", desc:"Uma entrada → 6 posts: LinkedIn, X, IG, TikTok, Facebook, Email" }, fr: { name:"CampagneBlitz", title:"Générateur de campagnes réseaux sociaux par IA", desc:"Une entrée → 6 posts : LinkedIn, X, IG, TikTok, Facebook, Email" }, url:"https://39campaigngenerator.vercel.app", repo:"su-campaign", tag:"marketing" },
+      { n:40, en: { name:"CopyScope", title:"Marketing Copy Analyzer & Scorer", desc:"6-dimension radar chart scoring + AI rewrites for weak areas" }, es: { name:"CopyLupa", title:"Analizador y puntuador de copy", desc:"Radar de 6 dimensiones + reescrituras IA para áreas débiles" }, pt: { name:"CopyLupa", title:"Analisador e pontuador de copy", desc:"Radar de 6 dimensões + reescritas IA para áreas fracas" }, fr: { name:"CopyLoupe", title:"Analyseur et notateur de copy marketing", desc:"Radar 6 dimensions + réécritures IA pour les zones faibles" }, url:"https://40copyanalyzer.vercel.app", repo:"su-copyanalyzer", tag:"marketing" },
+      { n:41, en: { name:"HookScript", title:"AI Video Script & Hook Generator", desc:"5 hook styles, timestamped script, storyboard, CTAs, teleprompter mode" }, es: { name:"GanchoGuión", title:"Generador de guiones y hooks de video con IA", desc:"5 estilos de hook, guión con timestamps, storyboard, CTAs, teleprompter" }, pt: { name:"GanchoRoteiro", title:"Gerador de roteiros e hooks de vídeo com IA", desc:"5 estilos de hook, roteiro com timestamps, storyboard, CTAs, teleprompter" }, fr: { name:"CrochetScript", title:"Générateur de scripts et accroches vidéo par IA", desc:"5 styles d'accroche, script horodaté, storyboard, CTAs, prompteur" }, url:"https://41videoscript.vercel.app", repo:"su-videoscript", tag:"marketing" },
+      { n:42, en: { name:"MemeBrain", title:"AI Meme Caption Generator", desc:"Upload image → vision AI generates 5 captions: Wholesome, Sarcastic, Gen-Z, Corporate, Absurdist" }, es: { name:"MemeCerebro", title:"Generador de captions de memes con IA", desc:"Subí imagen → IA visión genera 5 captions: Tierno, Sarcástico, Gen-Z, Corporativo, Absurdo" }, pt: { name:"MemeCérebro", title:"Gerador de captions de memes com IA", desc:"Suba imagem → IA visão gera 5 captions: Fofo, Sarcástico, Gen-Z, Corporativo, Absurdo" }, fr: { name:"MemeCerveau", title:"Générateur de légendes de mèmes par IA", desc:"Téléchargez une image → l'IA vision génère 5 légendes : Mignon, Sarcastique, Gen-Z, Corporate, Absurde" }, url:"https://42memecaptions.vercel.app", repo:"su-memecaption", tag:"vision" },
+      { n:43, en: { name:"NameForge", title:"AI Startup Name Generator", desc:"Describe idea → 10 names with taglines, domain suggestions, explanations" }, es: { name:"NombreForja", title:"Generador de nombres de startups con IA", desc:"Describí tu idea → 10 nombres con taglines, sugerencias de dominio" }, pt: { name:"NomeForja", title:"Gerador de nomes de startups com IA", desc:"Descreva sua ideia → 10 nomes com taglines, sugestões de domínio" }, fr: { name:"NomForge", title:"Générateur de noms de startups par IA", desc:"Décrivez votre idée → 10 noms avec taglines, suggestions de domaine" }, url:"https://43startupnames.vercel.app", repo:"su-startupnames", tag:"ai" },
+      { n:44, en: { name:"SubjectLab", title:"AI Email Subject Line Tester", desc:"Score 5 subject lines on open rate, spam risk, emotion, clarity. Winner declared" }, es: { name:"AsuntoLab", title:"Tester de asuntos de email con IA", desc:"Puntuá 5 asuntos en tasa de apertura, spam, emoción, claridad. Ganador declarado" }, pt: { name:"AssuntoLab", title:"Testador de assuntos de email com IA", desc:"Pontue 5 assuntos em taxa de abertura, spam, emoção, clareza. Vencedor declarado" }, fr: { name:"ObjetLab", title:"Testeur de lignes d'objet email par IA", desc:"Notez 5 lignes d'objet sur le taux d'ouverture, spam, émotion, clarté. Gagnant déclaré" }, url:"https://44subjectlinetester.vercel.app", repo:"su-subjectlab", tag:"marketing" },
+      { n:45, en: { name:"BulletPro", title:"AI Resume Bullet Point Optimizer", desc:"Job desc + raw bullets → ATS-optimized rewrites with action verbs + metrics" }, es: { name:"BalaPro", title:"Optimizador de bullets de CV con IA", desc:"Descripción del puesto + bullets → reescrituras ATS con verbos de acción + métricas" }, pt: { name:"BalaPro", title:"Otimizador de bullets de CV com IA", desc:"Descrição da vaga + bullets → reescritas ATS com verbos de ação + métricas" }, fr: { name:"BallePro", title:"Optimiseur de puces de CV par IA", desc:"Fiche de poste + puces → réécritures ATS avec verbes d'action + métriques" }, url:"https://45resumeoptimizer.vercel.app", repo:"su-bulletpro", tag:"ai" },
+      { n:46, en: { name:"MoodMix", title:"AI Playlist Generator from Mood", desc:"Describe a mood → themed 15-song playlist with Spotify-style dark UI" }, es: { name:"VibraMix", title:"Generador de playlists desde estado de ánimo con IA", desc:"Describí un mood → playlist temática de 15 temas con UI oscura estilo Spotify" }, pt: { name:"VibraMix", title:"Gerador de playlists a partir do humor com IA", desc:"Descreva um mood → playlist temática de 15 músicas com UI escura estilo Spotify" }, fr: { name:"HumeurMix", title:"Générateur de playlists depuis l'humeur par IA", desc:"Décrivez une ambiance → playlist thématique de 15 titres, UI sombre style Spotify" }, url:"https://46playlistgenerator.vercel.app", repo:"su-moodmix", tag:"fun" },
+      { n:47, en: { name:"MVDExplorer", title:"Interactive Montevideo Map", desc:"Leaflet map with 8 municipios. Heatmap by metric: safety, property value, green space, transit, walkability, nightlife" }, es: { name:"MVDExplorer", title:"Mapa interactivo de Montevideo", desc:"Mapa Leaflet con 8 municipios. Heatmap por métrica: seguridad, valor inmobiliario, espacios verdes, transporte, caminabilidad, vida nocturna" }, pt: { name:"MVDExplorer", title:"Mapa interativo de Montevidéu", desc:"Mapa Leaflet com 8 municípios. Heatmap por métrica: segurança, valor imobiliário, áreas verdes, transporte, caminhabilidade, vida noturna" }, fr: { name:"MVDExplorer", title:"Carte interactive de Montevideo", desc:"Carte Leaflet avec 8 municipios. Heatmap par métrique : sécurité, immobilier, espaces verts, transport, marchabilité, vie nocturne" }, url:"https://47montevideomap.vercel.app", repo:"su-mvdexplorer", tag:"tool" },
+      { n:48, en: { name:"DomainIQ", title:"AI Domain Name Valuator", desc:"Enter domain → value estimate, letter grade, 6 scoring factors, comparable sales" }, es: { name:"DominioIQ", title:"Valuador de dominios con IA", desc:"Ingresá un dominio → estimación de valor, nota, 6 factores, ventas comparables" }, pt: { name:"DomínioIQ", title:"Avaliador de domínios com IA", desc:"Insira um domínio → estimativa de valor, nota, 6 fatores, vendas comparáveis" }, fr: { name:"DomaineIQ", title:"Évaluateur de noms de domaine par IA", desc:"Entrez un domaine → estimation de valeur, note, 6 facteurs, ventes comparables" }, url:"https://48domainvaluator.vercel.app", repo:"su-domainiq", tag:"ai" },
+      { n:49, en: { name:"WireSpec", title:"AI Wireframe to Product Spec", desc:"Upload wireframe/sketch → Groq vision generates full product spec with components, user flow, tech notes" }, es: { name:"BocetaSpec", title:"De wireframe a especificación con IA", desc:"Subí wireframe/boceto → Groq vision genera spec completa con componentes, flujo, notas técnicas" }, pt: { name:"EsboçoSpec", title:"De wireframe a especificação com IA", desc:"Suba wireframe/esboço → Groq vision gera spec completa com componentes, fluxo, notas técnicas" }, fr: { name:"CroquisSpec", title:"Du wireframe au cahier des charges par IA", desc:"Téléchargez un wireframe → Groq vision génère une spec complète avec composants, flux, notes techniques" }, url:"https://49wireframedescriber.vercel.app", repo:"su-wirespec", tag:"vision" },
+      { n:50, en: { name:"QRForge", title:"QR Code Generator", desc:"Custom colors, size, error correction, margin. Presets for WiFi/vCard/URL. Download PNG" }, es: { name:"QRForja", title:"Generador de códigos QR", desc:"Colores custom, tamaño, corrección de errores, margen. Presets WiFi/vCard/URL. Descargar PNG" }, pt: { name:"QRForja", title:"Gerador de códigos QR", desc:"Cores custom, tamanho, correção de erros, margem. Presets WiFi/vCard/URL. Baixar PNG" }, fr: { name:"QRForge", title:"Générateur de codes QR", desc:"Couleurs personnalisées, taille, correction d'erreurs, marge. Presets WiFi/vCard/URL. Télécharger PNG" }, url:"https://50qrgenerator.vercel.app", repo:"su-qrforge", tag:"tool" },
+      { n:51, en: { name:"NegotiateAI", title:"AI Salary Negotiation Coach", desc:"Enter offer details → negotiation strategy, scripts, email templates, counter-offer range" }, es: { name:"NegociaIA", title:"Coach de negociación salarial con IA", desc:"Ingresá detalles de oferta → estrategia, guiones, templates de email, rango de contraoferta" }, pt: { name:"NegociaIA", title:"Coach de negociação salarial com IA", desc:"Insira detalhes da oferta → estratégia, scripts, templates de email, faixa de contraproposta" }, fr: { name:"NégocieIA", title:"Coach de négociation salariale par IA", desc:"Entrez les détails de l'offre → stratégie, scripts, modèles d'email, fourchette de contre-offre" }, url:"https://51salarycoach.vercel.app", repo:"su-negotiateai", tag:"ai" },
     ];
 
-    const tagLabels = {
-      ai: "AI-Powered",
-      dev: "Dev Tool",
-      marketing: "Marketing",
-      fun: "Fun & Viral",
-      tool: "Utility",
-      vision: "Vision AI",
-    };
-
     const tagColors = {
-      ai: "var(--purple)",
-      dev: "var(--blue)",
-      marketing: "var(--orange)",
-      fun: "var(--green)",
-      tool: "var(--cyan)",
-      vision: "var(--yellow)",
+      ai: "var(--purple)", dev: "var(--blue)", marketing: "var(--orange)",
+      fun: "var(--green)", tool: "var(--cyan)", vision: "var(--yellow)",
     };
 
-    function renderGrid(filter = "all") {
-      const grid = document.getElementById("grid");
-      const filtered = filter === "all" ? ideas : ideas.filter(i => i.tag === filter);
+    // ── State ─────────────────────────────────────────────────
+    let currentLang = localStorage.getItem("slop-lang") || (navigator.language.startsWith("es") ? "es" : navigator.language.startsWith("pt") ? "pt" : navigator.language.startsWith("fr") ? "fr" : "en");
+    let currentFilter = "all";
 
-      grid.innerHTML = filtered.map(idea => `
+    function t() { return i18n[currentLang] || i18n.en; }
+
+    function applyLang() {
+      const s = t();
+      document.documentElement.lang = currentLang;
+      document.getElementById("badge").textContent = s.badge;
+      document.getElementById("title").innerHTML = s.title;
+      document.getElementById("subtitle").innerHTML = s.subtitle;
+      document.getElementById("statApps").textContent = s.statApps;
+      document.getElementById("statBudget").textContent = s.statBudget;
+      document.getElementById("statSlop").textContent = s.statSlop;
+
+      // Filters
+      const bar = document.getElementById("filterBar");
+      bar.innerHTML = Object.entries(s.filters).map(([key, label]) =>
+        `<button class="filter-btn${key === currentFilter ? ' active' : ''}" data-filter="${key}">${label}</button>`
+      ).join("");
+      bar.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          currentFilter = btn.dataset.filter;
+          bar.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderGrid();
+        });
+      });
+
+      // Manifesto
+      document.getElementById("manifesto").innerHTML = s.manifesto.map(l =>
+        `<span class="comment">${l}</span>`
+      ).join("<br>");
+
+      document.getElementById("footerText").innerHTML = s.footer;
+
+      // Lang buttons
+      document.querySelectorAll(".lang-btn").forEach(b => {
+        b.classList.toggle("active", b.dataset.lang === currentLang);
+      });
+
+      renderGrid();
+    }
+
+    function renderGrid() {
+      const s = t();
+      const grid = document.getElementById("grid");
+      const filtered = currentFilter === "all" ? ideas : ideas.filter(i => i.tag === currentFilter);
+
+      grid.innerHTML = filtered.map(idea => {
+        const loc = idea[currentLang] || idea.en;
+        return `
         <a href="${idea.url}" target="_blank" rel="noopener" class="card" style="--card-accent: ${tagColors[idea.tag]}" data-tag="${idea.tag}">
           <div class="card-header">
             <span class="card-number">#${String(idea.n).padStart(2, '0')}</span>
-            <span class="card-tag tag-${idea.tag}">${tagLabels[idea.tag]}</span>
+            <span class="card-tag tag-${idea.tag}">${s.tags[idea.tag]}</span>
           </div>
-          <div class="card-title">${idea.name}™</div>
-          <div class="card-desc">${idea.desc}</div>
+          <div class="card-title">${loc.name}™</div>
+          <div class="card-desc">${loc.desc}</div>
           <div class="card-footer">
             <span class="card-repo">${idea.repo}</span>
             <span class="card-arrow">→</span>
           </div>
-        </a>
-      `).join("");
+        </a>`;
+      }).join("");
     }
 
-    // Filters
-    document.querySelectorAll(".filter-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderGrid(btn.dataset.filter);
-      });
+    // Lang switcher
+    document.getElementById("langSwitcher").addEventListener("click", e => {
+      const btn = e.target.closest(".lang-btn");
+      if (!btn) return;
+      currentLang = btn.dataset.lang;
+      localStorage.setItem("slop-lang", currentLang);
+      applyLang();
     });
 
-    renderGrid();
+    // Boot
+    applyLang();
   </script>
 </body>
 </html>
