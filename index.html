@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Slop Machine — SaaSpocalypse Index</title>
+  <meta name="description" content="46 SaaS apps. One unhinged loop. Welcome to the SaaSpocalypse." />
+  <meta property="og:title" content="The Slop Machine" />
+  <meta property="og:description" content="46 AI-powered micro-SaaS apps shipped at mass-production speed. The SaaSpocalypse is here." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏭</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #08080c;
+      --surface: #111118;
+      --surface-hover: #1a1a24;
+      --border: #1e1e2e;
+      --text: #e0e0e8;
+      --text-dim: #6b6b80;
+      --accent: #ff3366;
+      --accent-glow: rgba(255, 51, 102, 0.15);
+      --green: #00ff88;
+      --yellow: #ffd60a;
+      --blue: #3b82f6;
+      --purple: #a855f7;
+      --orange: #f97316;
+      --cyan: #06b6d4;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Scanline overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* Animated background grid */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 51, 102, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 51, 102, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(255, 51, 102, 0.3);
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      background: rgba(255, 51, 102, 0.05);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--yellow) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 1rem auto 0;
+      line-height: 1.6;
+    }
+
+    .subtitle strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Stats bar */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Filter */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-dim);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--card-accent, var(--accent)), transparent);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .card:hover {
+      background: var(--surface-hover);
+      border-color: rgba(255, 51, 102, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .card-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .card-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .tag-ai { background: rgba(168, 85, 247, 0.15); color: var(--purple); }
+    .tag-dev { background: rgba(59, 130, 246, 0.15); color: var(--blue); }
+    .tag-marketing { background: rgba(249, 115, 22, 0.15); color: var(--orange); }
+    .tag-fun { background: rgba(0, 255, 136, 0.15); color: var(--green); }
+    .tag-tool { background: rgba(6, 182, 212, 0.15); color: var(--cyan); }
+    .tag-vision { background: rgba(255, 214, 10, 0.15); color: var(--yellow); }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-repo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+    }
+
+    .card-arrow {
+      color: var(--accent);
+      font-size: 0.9rem;
+      transition: transform 0.2s;
+    }
+
+    .card:hover .card-arrow {
+      transform: translateX(3px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 4rem 0 2rem;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      line-height: 1.8;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .manifesto {
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+      padding: 1.5rem;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+      text-align: left;
+    }
+
+    .manifesto .comment { color: var(--green); }
+
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+      .stats { gap: 1.5rem; }
+      .container { padding: 1rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="container">
+    <header class="hero">
+      <div class="badge">transmission from the SaaSpocalypse</div>
+      <h1>The Slop Machine</h1>
+      <p class="subtitle">
+        <strong>46 micro-SaaS apps</strong> extruded at mass-production speed by one unhinged Ralph Loop.
+        No planning. No market research. No mercy.
+      </p>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number" id="count">46</div>
+          <div class="stat-label">Apps Shipped</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">$0</div>
+          <div class="stat-label">Budget</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Slop Output</div>
+        </div>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI-Powered</button>
+        <button class="filter-btn" data-filter="dev">Dev Tools</button>
+        <button class="filter-btn" data-filter="marketing">Marketing</button>
+        <button class="filter-btn" data-filter="fun">Fun & Viral</button>
+        <button class="filter-btn" data-filter="tool">Utilities</button>
+        <button class="filter-btn" data-filter="vision">Vision AI</button>
+      </div>
+    </header>
+
+    <main class="grid" id="grid"></main>
+
+    <footer>
+      <div class="manifesto">
+        <span class="comment">// the SaaSpocalypse manifesto</span><br>
+        <span class="comment">// 1. ship before you think</span><br>
+        <span class="comment">// 2. one feature, not a platform</span><br>
+        <span class="comment">// 3. free tier or die</span><br>
+        <span class="comment">// 4. if it works, deploy it</span><br>
+        <span class="comment">// 5. the loop never stops</span><br>
+        <span class="comment">// 6. embrace the slop</span>
+      </div>
+      Built with reckless abandon by <a href="https://github.com/maxilylm" target="_blank">@maxilylm</a><br>
+      Powered by Groq, Vercel, and an alarming lack of impulse control
+    </footer>
+  </div>
+
+  <script type="module">
+    const ideas = [
+      { n: 1,  name: "SpeakScore", title: "Voice Transcriber for Teacher Speech Evaluation", desc: "Groq Whisper + Llama 3.3 transcription & speech analysis for teachers", url: "https://01voicetranscriber.vercel.app", repo: "su-speakscore", tag: "ai" },
+      { n: 2,  name: "ReadMe.ai", title: "AI README Generator from Code", desc: "Paste code or describe your project, get a polished README instantly", url: "https://02aireadmegenerator.vercel.app", repo: "su-readmeai", tag: "dev" },
+      { n: 3,  name: "AffirmBot", title: "WhatsApp Daily Affirmations Bot", desc: "Twilio WhatsApp + Groq Llama 3.3 — positive vibes on autopilot", url: "https://03whatsappaffirmations.vercel.app", repo: "su-affirmbot", tag: "fun" },
+      { n: 4,  name: "FlashForge", title: "AI Flashcard Generator from Notes", desc: "Paste notes, get interactive flip cards for studying", url: "https://04aiflashcards.vercel.app", repo: "su-flashcards", tag: "ai" },
+      { n: 5,  name: "RegexWTF", title: "Regex Explainer & Tester", desc: "Paste regex, get plain English explanation + live test matches", url: "https://05regexexplainer.vercel.app", repo: "su-regex", tag: "dev" },
+      { n: 6,  name: "Repurpose.it", title: "AI Content Repurposer", desc: "Paste a blog post, get Twitter/LinkedIn/Instagram versions instantly", url: "https://06contentrepurposer.vercel.app", repo: "su-repurpose", tag: "marketing" },
+      { n: 7,  name: "ColdSnap", title: "AI Cold Email Generator for Freelancers", desc: "3 email variants — formal, casual, follow-up — tailored to your pitch", url: "https://07coldemailgenerator.vercel.app", repo: "su-coldemail", tag: "marketing" },
+      { n: 8,  name: "PolicyForge", title: "Privacy Policy Generator", desc: "Multi-step form generates a compliant privacy policy. No AI needed", url: "https://08privacypolicy.vercel.app", repo: "su-privacypolicy", tag: "tool" },
+      { n: 9,  name: "InvoiceVision", title: "AI Invoice Data Extractor", desc: "Upload invoice image, extract structured data via Groq vision", url: "https://09invoiceextractor.vercel.app", repo: "su-invoiceai", tag: "vision" },
+      { n: 10, name: "ChromaSnatch", title: "Color Palette Generator from Image", desc: "Upload image, extract dominant colors via Canvas API k-means clustering", url: "https://10colorpalette.vercel.app", repo: "su-colorpalette", tag: "tool" },
+      { n: 11, name: "JSONjoy", title: "JSON Formatter & Validator", desc: "Format, validate, tree view, JSONPath, diff tool — the dev Swiss army knife", url: "https://11jsonformatter.vercel.app", repo: "su-jsonformat", tag: "dev" },
+      { n: 12, name: "TL;DR Notes", title: "AI Meeting Notes Summarizer", desc: "Paste notes → TL;DR + decisions + action items + topics", url: "https://12meetingsummarizer.vercel.app", repo: "su-meetingnotes", tag: "ai" },
+      { n: 13, name: "CronGuru", title: "Cron Expression Explainer & Builder", desc: "Explain cron, show next 5 runs, visual builder + presets", url: "https://13cronexplainer.vercel.app", repo: "su-cronexplainer", tag: "dev" },
+      { n: 14, name: "LegalBot", title: "Terms of Service Generator", desc: "5-step form generates ToS. Companion to the Privacy Policy generator", url: "https://14tosgenerator.vercel.app", repo: "su-tosgen", tag: "tool" },
+      { n: 15, name: "SlideDeck.md", title: "Markdown to Presentation Converter", desc: "Write markdown, present fullscreen, export HTML. Split editor + preview", url: "https://15mdtoslides.vercel.app", repo: "su-mdslides", tag: "dev" },
+      { n: 16, name: "OGpeek", title: "Social Preview / OG Meta Checker", desc: "Preview your OG tags across Google, Twitter, LinkedIn, Facebook", url: "https://16ogpreview.vercel.app", repo: "su-ogpreview", tag: "marketing" },
+      { n: 17, name: "WordPulse", title: "Word Counter with Readability Score", desc: "Live stats + Flesch-Kincaid readability + keyword density. SEO magnet", url: "https://17wordcounter.vercel.app", repo: "su-wordcount", tag: "tool" },
+      { n: 18, name: "GradientLab", title: "CSS Gradient Generator", desc: "Linear/radial, color stops, presets, random, live preview + copy CSS", url: "https://18cssgradient.vercel.app", repo: "su-gradient", tag: "dev" },
+      { n: 19, name: "FaviCraft", title: "Favicon Generator from Text/Emoji", desc: "Text/emoji + colors + shape → Canvas API favicons at 5 sizes", url: "https://19favicongenerator.vercel.app", repo: "su-favicon", tag: "dev" },
+      { n: 20, name: "OutlineAI", title: "AI Blog Post Outline Generator", desc: "Topic + audience + tone → structured outline with H2/H3 hierarchy", url: "https://20blogoutline.vercel.app", repo: "su-blogoutline", tag: "marketing" },
+      { n: 21, name: "CommitWhisper", title: "AI Git Commit Message Generator", desc: "Paste a diff, get 3 conventional commit messages with type badges", url: "https://21commitmessage.vercel.app", repo: "su-commitmsg", tag: "dev" },
+      { n: 22, name: "TOONify", title: "JSON to TOON Converter", desc: "Convert JSON to Token-Oriented Object Notation — 30-60% fewer LLM tokens", url: "https://22toonconverter.vercel.app", repo: "su-toon", tag: "dev" },
+      { n: 23, name: "CodeSheriff", title: "AI Agentic Code Reviewer", desc: "4-step agentic review: language ID → bugs → security → improvements", url: "https://23codereviewer.vercel.app", repo: "su-codereview", tag: "ai" },
+      { n: 24, name: "FridgeChef", title: "AI Recipe from Fridge Photo", desc: "Snap your fridge → vision AI identifies ingredients → 3 recipes generated", url: "https://24recipefromfridge.vercel.app", repo: "su-fridgerecipe", tag: "vision" },
+      { n: 25, name: "QuizMaster", title: "AI Interactive Quiz Master", desc: "Topic or notes → 5 MC questions → answer → AI scores + explanations", url: "https://25quizmaster.vercel.app", repo: "su-quizmaster", tag: "ai" },
+      { n: 26, name: "RoastMyWeb", title: "AI Website Roast", desc: "Paste HTML → 4-dimensional roast: copy, SEO, a11y, UX. Humor included", url: "https://26websiteroast.vercel.app", repo: "su-webroast", tag: "fun" },
+      { n: 27, name: "Mini-Firecrawl", title: "AI Web Scraper — URL to Structured Data", desc: "URL + description → server fetches page → AI extracts JSON. Export CSV", url: "https://27webscraper.vercel.app", repo: "su-scraper", tag: "ai" },
+      { n: 28, name: "GhostChat", title: "AI Persona Chat Playground", desc: "Chat with Einstein, Sherlock, Yoda, Cleopatra — or create your own persona", url: "https://28personachat.vercel.app", repo: "su-personachat", tag: "fun" },
+      { n: 29, name: "CodeRosetta", title: "AI Code Translator", desc: "Paste code → translate between Python, JS, Rust, TypeScript. Side-by-side diff", url: "https://29codetranslator.vercel.app", repo: "su-codetranslate", tag: "dev" },
+      { n: 30, name: "LogoForge", title: "AI SVG Logo Generator", desc: "Describe your brand → 3 SVG logo concepts rendered live. Download vectors", url: "https://30svglogo.vercel.app", repo: "su-logogen", tag: "ai" },
+      { n: 31, name: "MoodHue", title: "AI Mood-to-Color Palette", desc: "\"Cyberpunk nightclub\" → 6-color palette with names, hex, CSS vars, Tailwind", url: "https://31moodpalette.vercel.app", repo: "su-moodpalette", tag: "ai" },
+      { n: 32, name: "DevScaffold", title: "AI Coding Framework Assistant", desc: "Pick CLI + project + features → downloadable ZIP with CLAUDE.md, hooks, skills", url: "https://32devscaffold.vercel.app", repo: "su-devscaffold", tag: "dev" },
+      { n: 33, name: "GitRoast", title: "AI Roast My GitHub Profile", desc: "Username → profile + repo analysis → comedic roast + Developer Personality Type", url: "https://33githubroast.vercel.app", repo: "su-gitroast", tag: "fun" },
+      { n: 34, name: "DebateArena", title: "AI Debate Arena", desc: "Pick 2 personas + topic → 5 rounds of real-time AI arguing. Audience vote", url: "https://34debatearena.vercel.app", repo: "su-debate", tag: "fun" },
+      { n: 35, name: "QuestForge", title: "AI Choose Your Adventure", desc: "Enter a premise → branching story, 3 choices per scene, 5-7 scenes deep", url: "https://35adventure.vercel.app", repo: "su-adventure", tag: "fun" },
+      { n: 36, name: "RetroFolio", title: "Retro Terminal Portfolio Generator", desc: "Fake terminal, CRT scanlines, ASCII art, matrix rain, keyboard sounds", url: "https://36retroterminal.vercel.app", repo: "su-retrofolio", tag: "fun" },
+      { n: 37, name: "LinkedInCraft", title: "LinkedIn Outreach Message Crafter", desc: "5 message variants: connection, DM, follow-up, InMail, engagement comment", url: "https://37linkedinoutreach.vercel.app", repo: "su-linkedincraft", tag: "marketing" },
+      { n: 38, name: "TikTokBrain", title: "AI TikTok/Reels Content Planner", desc: "7-day calendar with hooks, scripts, hashtags, posting times per platform", url: "https://38tiktokplanner.vercel.app", repo: "su-tiktokplan", tag: "marketing" },
+      { n: 39, name: "CampaignBlitz", title: "AI Social Media Campaign Generator", desc: "One input → 6 platform posts: LinkedIn, X, IG, TikTok, Facebook, Email", url: "https://39campaigngenerator.vercel.app", repo: "su-campaign", tag: "marketing" },
+      { n: 40, name: "CopyScope", title: "Marketing Copy Analyzer & Scorer", desc: "6-dimension radar chart scoring + AI rewrites for weak areas", url: "https://40copyanalyzer.vercel.app", repo: "su-copyanalyzer", tag: "marketing" },
+      { n: 41, name: "HookScript", title: "AI Video Script & Hook Generator", desc: "5 hook styles, timestamped script, storyboard, CTAs, teleprompter mode", url: "https://41videoscript.vercel.app", repo: "su-videoscript", tag: "marketing" },
+      { n: 42, name: "MemeBrain", title: "AI Meme Caption Generator", desc: "Upload image → vision AI generates 5 captions: Wholesome, Sarcastic, Gen-Z, Corporate, Absurdist", url: "https://42memecaptions.vercel.app", repo: "su-memecaption", tag: "vision" },
+      { n: 43, name: "NameForge", title: "AI Startup Name Generator", desc: "Describe idea → 10 names with taglines, domain suggestions, explanations", url: "https://43startupnames.vercel.app", repo: "su-startupnames", tag: "ai" },
+      { n: 44, name: "SubjectLab", title: "AI Email Subject Line Tester", desc: "Score 5 subject lines on open rate, spam risk, emotion, clarity. Winner declared", url: "https://44subjectlinetester.vercel.app", repo: "su-subjectlab", tag: "marketing" },
+      { n: 45, name: "BulletPro", title: "AI Resume Bullet Point Optimizer", desc: "Job desc + raw bullets → ATS-optimized rewrites with action verbs + metrics", url: "https://45resumeoptimizer.vercel.app", repo: "su-bulletpro", tag: "ai" },
+      { n: 46, name: "MoodMix", title: "AI Playlist Generator from Mood", desc: "Describe a mood → themed 15-song playlist with Spotify-style dark UI", url: "https://46playlistgenerator.vercel.app", repo: "su-moodmix", tag: "fun" },
+    ];
+
+    const tagLabels = {
+      ai: "AI-Powered",
+      dev: "Dev Tool",
+      marketing: "Marketing",
+      fun: "Fun & Viral",
+      tool: "Utility",
+      vision: "Vision AI",
+    };
+
+    const tagColors = {
+      ai: "var(--purple)",
+      dev: "var(--blue)",
+      marketing: "var(--orange)",
+      fun: "var(--green)",
+      tool: "var(--cyan)",
+      vision: "var(--yellow)",
+    };
+
+    function renderGrid(filter = "all") {
+      const grid = document.getElementById("grid");
+      const filtered = filter === "all" ? ideas : ideas.filter(i => i.tag === filter);
+
+      grid.innerHTML = filtered.map(idea => `
+        <a href="${idea.url}" target="_blank" rel="noopener" class="card" style="--card-accent: ${tagColors[idea.tag]}" data-tag="${idea.tag}">
+          <div class="card-header">
+            <span class="card-number">#${String(idea.n).padStart(2, '0')}</span>
+            <span class="card-tag tag-${idea.tag}">${tagLabels[idea.tag]}</span>
+          </div>
+          <div class="card-title">${idea.name}™</div>
+          <div class="card-desc">${idea.desc}</div>
+          <div class="card-footer">
+            <span class="card-repo">${idea.repo}</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+      `).join("");
+    }
+
+    // Filters
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderGrid(btn.dataset.filter);
+      });
+    });
+
+    renderGrid();
+  </script>
+</body>
+</html>
