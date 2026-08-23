@@ -1,455 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Slop Machine — SaaSpocalypse Index</title>
-  <meta name="description" content="90 SaaS apps. One unhinged loop. Welcome to the SaaSpocalypse." />
-  <meta property="og:title" content="The Slop Machine" />
-  <meta property="og:description" content="90 micro-SaaS apps extruded at mass-production speed. The SaaSpocalypse is here." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏭</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Máximo Lorenzo — Selected Work</title>
+<meta name="description" content="An index of 90 production web applications — designed, built, and deployed. Máximo Lorenzo, engineer, Montevideo." />
+<meta name="author" content="Máximo Lorenzo" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Máximo Lorenzo — Selected Work" />
+<meta property="og:description" content="An index of 90 production web applications — designed, built, and deployed end to end." />
+<meta property="og:url" content="https://su-slopmachine.vercel.app" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://su-slopmachine.vercel.app" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23141210'/><text x='50' y='72' font-size='62' font-family='Georgia,serif' fill='%23F5F1E8' text-anchor='middle'>M</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    :root {
-      --bg: #08080c;
-      --surface: #111118;
-      --surface-hover: #1a1a24;
-      --border: #1e1e2e;
-      --text: #e0e0e8;
-      --text-dim: #6b6b80;
-      --accent: #ff3366;
-      --accent-glow: rgba(255, 51, 102, 0.15);
-      --green: #00ff88;
-      --yellow: #ffd60a;
-      --blue: #3b82f6;
-      --purple: #a855f7;
-      --orange: #f97316;
-      --cyan: #06b6d4;
+  :root {
+    --paper:      #F4F0E6;
+    --paper-2:    #EDE8DA;
+    --paper-3:    #E4DECD;
+    --ink:        #17140F;
+    --ink-2:      #4A443A;
+    --ink-3:      #857D6E;
+    --rule:       #CFC7B4;
+    --rule-soft:  #DED7C6;
+    --accent:     #9C3417;
+    --accent-2:   #7A2810;
+
+    --t-ai:        #6B4E9E;
+    --t-dev:       #1F5673;
+    --t-marketing: #A85A17;
+    --t-fun:       #2E6B4F;
+    --t-tool:      #16656B;
+    --t-vision:    #8A5A00;
+
+    --display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+    --measure: 1180px;
+    --ease: cubic-bezier(.22,.61,.36,1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:      #121110;
+      --paper-2:    #191817;
+      --paper-3:    #201E1C;
+      --ink:        #EFEAE0;
+      --ink-2:      #B2AB9E;
+      --ink-3:      #7E776B;
+      --rule:       #34312C;
+      --rule-soft:  #262421;
+      --accent:     #E0703F;
+      --accent-2:   #F08A5C;
+
+      --t-ai:        #A98BDE;
+      --t-dev:       #6FB2D2;
+      --t-marketing: #E0A05A;
+      --t-fun:       #74C79C;
+      --t-tool:      #5DBFC4;
+      --t-vision:    #D9B25E;
     }
+  }
+  :root[data-theme="dark"] {
+    --paper:#121110; --paper-2:#191817; --paper-3:#201E1C;
+    --ink:#EFEAE0; --ink-2:#B2AB9E; --ink-3:#7E776B;
+    --rule:#34312C; --rule-soft:#262421;
+    --accent:#E0703F; --accent-2:#F08A5C;
+    --t-ai:#A98BDE; --t-dev:#6FB2D2; --t-marketing:#E0A05A;
+    --t-fun:#74C79C; --t-tool:#5DBFC4; --t-vision:#D9B25E;
+  }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
-      pointer-events: none;
-      z-index: 999;
-    }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-    .bg-grid {
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,51,102,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,51,102,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      z-index: 0;
-    }
+  /* paper grain */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 1;
+    pointer-events: none; opacity: .32; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) body::before { mix-blend-mode: screen; opacity: .13; }
+  }
+  :root[data-theme="dark"] body::before { mix-blend-mode: screen; opacity: .13; }
 
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-    }
+  .wrap { position: relative; z-index: 2; max-width: var(--measure); margin: 0 auto; padding: 0 clamp(1.1rem, 4vw, 3rem); }
 
-    .hero {
-      text-align: center;
-      padding: 4rem 0 3rem;
-      position: relative;
-    }
+  a { color: inherit; }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
+  ::selection { background: var(--accent); color: var(--paper); }
 
-    /* Language switcher */
-    .lang-switcher {
-      position: fixed;
-      top: 1.25rem;
-      right: 1.25rem;
-      z-index: 100;
-      display: flex;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--surface);
-    }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-    .lang-btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      padding: 0.4rem 0.7rem;
-      border: none;
-      background: transparent;
-      color: var(--text-dim);
-      cursor: pointer;
-      transition: all 0.2s;
-      letter-spacing: 0.05em;
-    }
+  .skip {
+    position: absolute; left: -9999px; top: 0; z-index: 99;
+    background: var(--ink); color: var(--paper); padding: .7rem 1.1rem;
+    font-family: var(--mono); font-size: .78rem;
+  }
+  .skip:focus { left: .6rem; top: .6rem; }
 
-    .lang-btn:not(:last-child) {
-      border-right: 1px solid var(--border);
-    }
+  /* ══ top bar ══ */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; padding: 1.4rem 0 1.1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .mark {
+    font-family: var(--mono); font-size: .74rem; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--ink-2);
+  }
+  .controls { display: flex; align-items: center; gap: .5rem; }
 
-    .lang-btn:hover { color: var(--text); background: var(--surface-hover); }
-    .lang-btn.active { color: var(--accent); background: var(--accent-glow); }
+  .seg { display: flex; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+  .seg button {
+    font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+    text-transform: uppercase; padding: .42rem .6rem;
+    background: transparent; border: 0; color: var(--ink-3);
+    cursor: pointer; transition: color .18s, background .18s;
+  }
+  .seg button + button { border-left: 1px solid var(--rule); }
+  .seg button:hover { color: var(--ink); background: var(--paper-2); }
+  .seg button[aria-pressed="true"] { color: var(--paper); background: var(--ink); }
 
-    .badge {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid rgba(255,51,102,0.3);
-      padding: 0.35rem 1rem;
-      border-radius: 999px;
-      margin-bottom: 1.5rem;
-      background: rgba(255,51,102,0.05);
-    }
+  .icon-btn {
+    width: 32px; height: 32px; display: grid; place-items: center;
+    border: 1px solid var(--rule); border-radius: 3px; background: transparent;
+    color: var(--ink-2); cursor: pointer; transition: color .18s, background .18s;
+  }
+  .icon-btn:hover { color: var(--ink); background: var(--paper-2); }
+  .icon-btn svg { width: 15px; height: 15px; }
 
-    h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, var(--yellow) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+  /* ══ masthead ══ */
+  .masthead { padding: clamp(3rem, 9vw, 6.5rem) 0 clamp(2rem, 5vw, 3.4rem); }
 
-    .subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: var(--text-dim);
-      max-width: 600px;
-      margin: 1rem auto 0;
-      line-height: 1.6;
-    }
+  .eyebrow {
+    font-family: var(--mono); font-size: .7rem; letter-spacing: .24em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 1.6rem;
+    opacity: 0; animation: rise .8s var(--ease) .05s forwards;
+  }
 
-    .subtitle strong { color: var(--accent); font-weight: 600; }
+  h1 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(2.9rem, 10.5vw, 8.2rem);
+    line-height: .92;
+    letter-spacing: -.028em;
+    font-variation-settings: 'opsz' 144;
+    margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+  }
+  h1 .l { display: block; opacity: 0; animation: rise .95s var(--ease) forwards; }
+  h1 .l:nth-child(1) { animation-delay: .12s; }
+  h1 .l:nth-child(2) { animation-delay: .22s; font-style: italic; font-weight: 400; color: var(--accent); }
 
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2.5rem 0;
-      flex-wrap: wrap;
-    }
+  .lede {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(1.12rem, 2.5vw, 1.6rem);
+    line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 34ch;
+    opacity: 0; animation: rise .9s var(--ease) .34s forwards;
+  }
+  .lede em { font-style: italic; color: var(--ink); }
 
-    .stat { text-align: center; }
+  @keyframes rise { from { opacity: 0; transform: translateY(1.1rem); } to { opacity: 1; transform: none; } }
 
-    .stat-number {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--green);
-    }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .eyebrow, h1 .l, .lede { opacity: 1 !important; transform: none !important; }
+  }
 
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
+  /* ══ stats ══ */
+  .stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    opacity: 0; animation: rise .9s var(--ease) .46s forwards;
+  }
+  .stat { padding: 1.35rem 1.1rem 1.4rem; }
+  .stat + .stat { border-left: 1px solid var(--rule-soft); }
+  .stat-n {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(1.9rem, 4.4vw, 2.9rem); line-height: 1;
+    letter-spacing: -.02em; display: block; margin-bottom: .4rem;
+  }
+  .stat-l {
+    font-family: var(--mono); font-size: .66rem; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--ink-3);
+  }
 
-    .filter-bar {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
+  /* ══ filter / search ══ */
+  .toolbar {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; flex-wrap: wrap; align-items: center; gap: .9rem;
+    padding: .95rem 0;
+    background: color-mix(in oklab, var(--paper) 88%, transparent);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border-bottom: 1px solid var(--rule);
+  }
 
-    .filter-btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.05em;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text-dim);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
+  .search {
+    position: relative; flex: 1 1 200px; min-width: 0; max-width: 300px;
+  }
+  .search input {
+    width: 100%; font-family: var(--mono); font-size: .78rem;
+    padding: .5rem .7rem .5rem 1.85rem;
+    background: var(--paper-2); color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 3px;
+    transition: border-color .18s;
+  }
+  .search input::placeholder { color: var(--ink-3); }
+  .search input:focus { border-color: var(--accent); outline: none; }
+  .search svg {
+    position: absolute; left: .6rem; top: 50%; transform: translateY(-50%);
+    width: 13px; height: 13px; color: var(--ink-3); pointer-events: none;
+  }
 
-    .filter-btn:hover, .filter-btn.active {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-glow);
-    }
+  .filters { display: flex; flex-wrap: wrap; gap: .3rem; }
+  .fbtn {
+    font-family: var(--mono); font-size: .68rem; letter-spacing: .08em;
+    padding: .4rem .68rem; border-radius: 999px;
+    border: 1px solid var(--rule); background: transparent;
+    color: var(--ink-3); cursor: pointer; white-space: nowrap;
+    transition: color .18s, border-color .18s, background .18s;
+  }
+  .fbtn:hover { color: var(--ink); border-color: var(--ink-3); }
+  .fbtn[aria-pressed="true"] { color: var(--paper); background: var(--ink); border-color: var(--ink); }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
+  .count { font-family: var(--mono); font-size: .68rem; color: var(--ink-3); margin-left: auto; white-space: nowrap; }
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      transition: all 0.25s ease;
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      overflow: hidden;
-    }
+  /* ══ index rows ══ */
+  .index { list-style: none; padding: 1rem 0 0; }
 
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--card-accent, var(--accent)), transparent);
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
+  .row { border-bottom: 1px solid var(--rule-soft); }
 
-    .card:hover {
-      background: var(--surface-hover);
-      border-color: rgba(255,51,102,0.2);
-      transform: translateY(-2px);
-    }
+  .row-inner {
+    display: grid;
+    grid-template-columns: 3.1rem minmax(0, 15rem) minmax(0, 1fr) auto;
+    align-items: baseline; gap: 1rem;
+    padding: 1.05rem .55rem 1.05rem .3rem;
+    position: relative; text-decoration: none;
+    transition: background .22s var(--ease), padding-left .22s var(--ease);
+  }
+  .row-inner::after {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+    background: var(--card-accent, var(--accent)); transform: scaleY(0);
+    transform-origin: 50% 100%; transition: transform .28s var(--ease);
+  }
+  .row-inner:hover, .row-inner:focus-visible {
+    background: var(--paper-2); padding-left: .95rem;
+  }
+  .row-inner:hover::after, .row-inner:focus-visible::after { transform: scaleY(1); transform-origin: 50% 0; }
 
-    .card:hover::before { opacity: 1; }
+  .r-num {
+    font-family: var(--mono); font-size: .72rem; color: var(--ink-3);
+    font-variant-numeric: tabular-nums; padding-top: .2rem;
+  }
 
-    .card-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 0.75rem;
-    }
+  .r-name {
+    font-family: var(--display); font-weight: 600;
+    font-size: clamp(1.15rem, 2.1vw, 1.45rem);
+    letter-spacing: -.012em; line-height: 1.15;
+  }
+  .r-cat {
+    display: block; margin-top: .3rem;
+    font-family: var(--mono); font-size: .6rem; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--card-accent, var(--ink-3));
+  }
 
-    .card-number {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--text-dim);
-      background: rgba(255,255,255,0.04);
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
+  .r-desc { color: var(--ink-2); font-size: .875rem; line-height: 1.55; }
 
-    .card-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.05em;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      white-space: nowrap;
-    }
+  .r-links { display: flex; align-items: center; gap: .45rem; }
+  .r-link {
+    font-family: var(--mono); font-size: .64rem; letter-spacing: .1em;
+    text-transform: uppercase; text-decoration: none;
+    padding: .34rem .6rem; border-radius: 3px;
+    border: 1px solid var(--rule); color: var(--ink-2);
+    white-space: nowrap; transition: all .18s;
+  }
+  .r-link:hover { border-color: var(--ink); color: var(--ink); background: var(--paper-3); }
+  .r-link.primary { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+  .r-link.primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-    .tag-ai { background: rgba(168,85,247,0.15); color: var(--purple); }
-    .tag-dev { background: rgba(59,130,246,0.15); color: var(--blue); }
-    .tag-marketing { background: rgba(249,115,22,0.15); color: var(--orange); }
-    .tag-fun { background: rgba(0,255,136,0.15); color: var(--green); }
-    .tag-tool { background: rgba(6,182,212,0.15); color: var(--cyan); }
-    .tag-vision { background: rgba(255,214,10,0.15); color: var(--yellow); }
+  @media (max-width: 900px) {
+    .row-inner { grid-template-columns: 2.5rem minmax(0, 1fr); grid-template-areas: "num name" ". desc" ". links"; row-gap: .55rem; }
+    .r-num { grid-area: num; } .r-name { grid-area: name; }
+    .r-desc { grid-area: desc; } .r-links { grid-area: links; padding-top: .15rem; }
+  }
 
-    .card-title { font-size: 1.05rem; font-weight: 600; line-height: 1.3; }
-    .card-desc { font-size: 0.8rem; color: var(--text-dim); line-height: 1.5; flex: 1; }
+  .empty { padding: 3.5rem .5rem; text-align: center; color: var(--ink-3); font-family: var(--mono); font-size: .8rem; }
 
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 0.5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .card-repo { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-dim); }
-    .card-arrow { color: var(--accent); font-size: 0.9rem; transition: transform 0.2s; }
-    .card:hover .card-arrow { transform: translateX(3px); }
-
-    footer {
-      text-align: center;
-      padding: 4rem 0 2rem;
-      color: var(--text-dim);
-      font-size: 0.8rem;
-      line-height: 1.8;
-    }
-
-    footer a { color: var(--accent); text-decoration: none; }
-
-    .manifesto {
-      max-width: 500px;
-      margin: 0 auto 1.5rem;
-      padding: 1.5rem;
-      border: 1px dashed var(--border);
-      border-radius: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--text-dim);
-      line-height: 1.8;
-      text-align: left;
-    }
-
-    .manifesto .comment { color: var(--green); }
-
-    @media (max-width: 600px) {
-      .grid { grid-template-columns: 1fr; }
-      .stats { gap: 1.5rem; }
-      .container { padding: 1rem 1rem 3rem; }
-      .lang-switcher { top: 0.75rem; right: 0.75rem; }
-    }
-  </style>
+  /* ══ colophon ══ */
+  .colophon {
+    margin-top: clamp(3.5rem, 8vw, 6rem);
+    border-top: 1px solid var(--rule);
+    padding: clamp(2.2rem, 5vw, 3.4rem) 0 clamp(2.6rem, 6vw, 4rem);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: clamp(1.6rem, 4vw, 3rem);
+  }
+  .col-h {
+    font-family: var(--mono); font-size: .64rem; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: .85rem;
+  }
+  .col-b { font-size: .88rem; line-height: 1.65; color: var(--ink-2); max-width: 42ch; }
+  .col-b a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 1px; transition: color .18s; }
+  .col-b a:hover { color: var(--accent); }
+  .col-b ol { list-style: none; font-family: var(--mono); font-size: .76rem; line-height: 2; color: var(--ink-2); }
+  .col-b ol span { color: var(--ink-3); margin-right: .5rem; }
+</style>
 </head>
 <body>
-  <div class="bg-grid"></div>
+<a class="skip" href="#index">Skip to the index</a>
 
-  <nav class="lang-switcher" id="langSwitcher">
-    <button class="lang-btn active" data-lang="en">EN</button>
-    <button class="lang-btn" data-lang="es">ES</button>
-    <button class="lang-btn" data-lang="pt">PT</button>
-    <button class="lang-btn" data-lang="fr">FR</button>
+<div class="wrap">
+
+  <header class="topbar">
+    <span class="mark" id="mark">Selected Work — 2026</span>
+    <div class="controls">
+      <div class="seg" id="langSeg" role="group" aria-label="Language"></div>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle colour theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <path id="themeIcon" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="masthead">
+    <p class="eyebrow" id="eyebrow"></p>
+    <h1>
+      <span class="l">Máximo</span>
+      <span class="l">Lorenzo</span>
+    </h1>
+    <p class="lede" id="lede"></p>
+  </section>
+
+  <section class="stats" id="stats" aria-label="Summary"></section>
+
+  <nav class="toolbar" aria-label="Filter the index">
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+      </svg>
+      <input type="search" id="q" autocomplete="off" spellcheck="false" />
+    </div>
+    <div class="filters" id="filters" role="group"></div>
+    <span class="count" id="count"></span>
   </nav>
 
-  <div class="container">
-    <header class="hero">
-      <div class="badge" id="badge"></div>
-      <h1 id="title"></h1>
-      <p class="subtitle" id="subtitle"></p>
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-number">81</div>
-          <div class="stat-label" id="statApps"></div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">$0</div>
-          <div class="stat-label" id="statBudget"></div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">∞</div>
-          <div class="stat-label" id="statSlop"></div>
-        </div>
-      </div>
-      <div class="filter-bar" id="filterBar"></div>
-    </header>
+  <main id="index">
+    <ol class="index" id="list"></ol>
+    <p class="empty" id="empty" hidden></p>
+  </main>
 
-    <main class="grid" id="grid"></main>
+  <footer class="colophon">
+    <div>
+      <p class="col-h" id="cAboutH"></p>
+      <p class="col-b" id="cAboutB"></p>
+    </div>
+    <div>
+      <p class="col-h" id="cStackH"></p>
+      <p class="col-b" id="cStackB"></p>
+    </div>
+    <div>
+      <p class="col-h" id="cContactH"></p>
+      <p class="col-b" id="cContactB"></p>
+    </div>
+  </footer>
 
-    <footer>
-      <div class="manifesto" id="manifesto"></div>
-      <span id="footerText"></span>
-    </footer>
-  </div>
+</div>
 
-  <script type="module">
-    // ── i18n strings ──────────────────────────────────────────
-    const i18n = {
-      en: {
-        badge: "transmission from the SaaSpocalypse",
-        title: "The Slop Machine",
-        subtitle: '<strong>90 micro-SaaS apps</strong> extruded at mass-production speed by one unhinged Ralph Loop. No planning. No market research. No mercy.',
-        statApps: "Apps Shipped",
-        statBudget: "Budget",
-        statSlop: "Slop Output",
-        filters: { all: "All", ai: "AI-Powered", dev: "Dev Tools", marketing: "Marketing", fun: "Fun & Viral", tool: "Utilities", vision: "Vision AI" },
-        tags: { ai: "AI-Powered", dev: "Dev Tool", marketing: "Marketing", fun: "Fun & Viral", tool: "Utility", vision: "Vision AI" },
-        manifesto: [
-          "// the SaaSpocalypse manifesto",
-          "// 1. ship before you think",
-          "// 2. one feature, not a platform",
-          "// 3. free tier or die",
-          "// 4. if it works, deploy it",
-          "// 5. the loop never stops",
-          "// 6. embrace the slop",
-        ],
-        footer: 'Built with reckless abandon by <a href="https://github.com/maxilylm" target="_blank">@maxilylm</a><br>Powered by Groq, Vercel, and an alarming lack of impulse control',
-      },
-      es: {
-        badge: "transmisión desde el SaaSpocalipsis",
-        title: "La Máquina del Churro",
-        subtitle: '<strong>90 micro-SaaS</strong> extruidos a velocidad industrial por un Ralph Loop desquiciado. Sin planificación. Sin estudio de mercado. Sin piedad.',
-        statApps: "Apps Lanzadas",
-        statBudget: "Presupuesto",
-        statSlop: "Producción de Churros",
-        filters: { all: "Todos", ai: "Con IA", dev: "Dev Tools", marketing: "Marketing", fun: "Diversión", tool: "Utilidades", vision: "Visión IA" },
-        tags: { ai: "Con IA", dev: "Dev Tool", marketing: "Marketing", fun: "Diversión", tool: "Utilidad", vision: "Visión IA" },
-        manifesto: [
-          "// el manifiesto del SaaSpocalipsis",
-          "// 1. lanzá antes de pensar",
-          "// 2. una función, no una plataforma",
-          "// 3. free tier o muerte",
-          "// 4. si funciona, deployealo",
-          "// 5. el loop nunca para",
-          "// 6. abrazá el churro",
-        ],
-        footer: 'Construido con abandono temerario por <a href="https://github.com/maxilylm" target="_blank">@maxilylm</a><br>Impulsado por Groq, Vercel, y una alarmante falta de autocontrol',
-      },
-      pt: {
-        badge: "transmissão do SaaSpocalipse",
-        title: "A Máquina de Gambiarra",
-        subtitle: '<strong>90 micro-SaaS</strong> extrudados em velocidade industrial por um Ralph Loop descontrolado. Sem planejamento. Sem pesquisa. Sem piedade.',
-        statApps: "Apps Lançados",
-        statBudget: "Orçamento",
-        statSlop: "Produção de Gambiarra",
-        filters: { all: "Todos", ai: "Com IA", dev: "Dev Tools", marketing: "Marketing", fun: "Diversão", tool: "Utilidades", vision: "Visão IA" },
-        tags: { ai: "Com IA", dev: "Dev Tool", marketing: "Marketing", fun: "Diversão", tool: "Utilidade", vision: "Visão IA" },
-        manifesto: [
-          "// o manifesto do SaaSpocalipse",
-          "// 1. lança antes de pensar",
-          "// 2. uma função, não uma plataforma",
-          "// 3. free tier ou morte",
-          "// 4. se funciona, faz deploy",
-          "// 5. o loop nunca para",
-          "// 6. abraça a gambiarra",
-        ],
-        footer: 'Construído com abandono imprudente por <a href="https://github.com/maxilylm" target="_blank">@maxilylm</a><br>Movido a Groq, Vercel, e uma alarmante falta de autocontrole',
-      },
-      fr: {
-        badge: "transmission depuis le SaaSpocalypse",
-        title: "La Machine à Bidouilles",
-        subtitle: '<strong>90 micro-SaaS</strong> extrudés à vitesse industrielle par une boucle Ralph déjantée. Pas de planification. Pas d\'étude de marché. Pas de pitié.',
-        statApps: "Apps Livrées",
-        statBudget: "Budget",
-        statSlop: "Production de Bidouilles",
-        filters: { all: "Tous", ai: "Avec IA", dev: "Dev Tools", marketing: "Marketing", fun: "Fun & Viral", tool: "Utilitaires", vision: "Vision IA" },
-        tags: { ai: "Avec IA", dev: "Dev Tool", marketing: "Marketing", fun: "Fun & Viral", tool: "Utilitaire", vision: "Vision IA" },
-        manifesto: [
-          "// le manifeste du SaaSpocalypse",
-          "// 1. livre avant de réfléchir",
-          "// 2. une fonction, pas une plateforme",
-          "// 3. free tier ou la mort",
-          "// 4. si ça marche, déploie-le",
-          "// 5. la boucle ne s'arrête jamais",
-          "// 6. embrasse la bidouille",
-        ],
-        footer: 'Construit avec un abandon téméraire par <a href="https://github.com/maxilylm" target="_blank">@maxilylm</a><br>Propulsé par Groq, Vercel, et un manque alarmant de maîtrise de soi',
-      },
-    };
-
-    // ── Ideas data with per-language names/titles/descs ──────
-    const ideas = [
+<script>
+const ideas = [
       { n:1,  en: { name:"SpeakScore", title:"Voice Transcriber for Teacher Speech Evaluation", desc:"Groq Whisper + Llama 3.3 transcription & speech analysis for teachers" }, es: { name:"HablaScore", title:"Transcriptor de voz para evaluar docentes", desc:"Groq Whisper + Llama 3.3 para transcripción y análisis de discurso docente" }, pt: { name:"FalaScore", title:"Transcritor de voz para avaliação docente", desc:"Groq Whisper + Llama 3.3 para transcrição e análise de discurso" }, fr: { name:"ParleScore", title:"Transcripteur vocal pour évaluation enseignante", desc:"Groq Whisper + Llama 3.3 pour transcription et analyse du discours" }, url:"https://su-speakscore.vercel.app", repo:"su-speakscore", tag:"ai" },
       { n:2,  en: { name:"ReadMe.ai", title:"AI README Generator from Code", desc:"Paste code or describe your project, get a polished README instantly" }, es: { name:"LéemeYa", title:"Generador de README con IA", desc:"Pegá tu código o describí tu proyecto, obtené un README pulido al instante" }, pt: { name:"LeiaMe.ai", title:"Gerador de README com IA", desc:"Cole seu código ou descreva o projeto, receba um README polido na hora" }, fr: { name:"LisezMoi.ai", title:"Générateur de README par IA", desc:"Collez votre code ou décrivez votre projet, obtenez un README soigné" }, url:"https://su-readmeai.vercel.app", repo:"su-readmeai", tag:"dev" },
       { n:3,  en: { name:"AffirmBot", title:"WhatsApp Daily Affirmations Bot", desc:"Twilio WhatsApp + Groq Llama 3.3 — positive vibes on autopilot" }, es: { name:"AfirmaBot", title:"Bot de afirmaciones diarias por WhatsApp", desc:"Twilio WhatsApp + Groq Llama 3.3 — buena onda en automático" }, pt: { name:"AfirmaBot", title:"Bot de afirmações diárias por WhatsApp", desc:"Twilio WhatsApp + Groq Llama 3.3 — boas vibrações no automático" }, fr: { name:"AffirmeBot", title:"Bot d'affirmations quotidiennes WhatsApp", desc:"Twilio WhatsApp + Groq Llama 3.3 — bonnes ondes en pilote automatique" }, url:"https://su-affirmbot.vercel.app", repo:"su-affirmbot", tag:"fun" },
@@ -542,91 +481,215 @@
       { n:90, en: { name:"FauxData", title:"Mock Data Generator", desc:"Visual schema builder, 20+ field types, presets, up to 1000 rows. Export JSON/CSV/SQL with CREATE TABLE. 100% in-browser" }, es: { name:"FauxData", title:"Generador de datos de prueba", desc:"Constructor visual de esquemas, 20+ tipos de campo, presets, hasta 1000 filas. Exportá JSON/CSV/SQL con CREATE TABLE. 100% en el navegador" }, pt: { name:"FauxData", title:"Gerador de dados falsos", desc:"Construtor visual de esquemas, 20+ tipos de campo, presets, até 1000 linhas. Exporte JSON/CSV/SQL com CREATE TABLE. 100% no navegador" }, fr: { name:"FauxData", title:"Générateur de données factices", desc:"Constructeur visuel de schémas, 20+ types de champs, presets, jusqu'à 1000 lignes. Export JSON/CSV/SQL avec CREATE TABLE. 100% dans le navigateur" }, url:"https://su-fauxdata.vercel.app", repo:"su-fauxdata", tag:"dev" },
     ];
 
-    const tagColors = {
-      ai: "var(--purple)", dev: "var(--blue)", marketing: "var(--orange)",
-      fun: "var(--green)", tool: "var(--cyan)", vision: "var(--yellow)",
-    };
+  const CATS = ["ai","dev","marketing","tool","vision","fun"];
 
-    // ── State ─────────────────────────────────────────────────
-    let currentLang = localStorage.getItem("slop-lang") || (navigator.language.startsWith("es") ? "es" : navigator.language.startsWith("pt") ? "pt" : navigator.language.startsWith("fr") ? "fr" : "en");
-    let currentFilter = "all";
+  const catVar = {
+    ai:"var(--t-ai)", dev:"var(--t-dev)", marketing:"var(--t-marketing)",
+    fun:"var(--t-fun)", tool:"var(--t-tool)", vision:"var(--t-vision)"
+  };
 
-    function t() { return i18n[currentLang] || i18n.en; }
-
-    function applyLang() {
-      const s = t();
-      document.documentElement.lang = currentLang;
-      document.getElementById("badge").textContent = s.badge;
-      document.getElementById("title").innerHTML = s.title;
-      document.getElementById("subtitle").innerHTML = s.subtitle;
-      document.getElementById("statApps").textContent = s.statApps;
-      document.getElementById("statBudget").textContent = s.statBudget;
-      document.getElementById("statSlop").textContent = s.statSlop;
-
-      // Filters
-      const bar = document.getElementById("filterBar");
-      bar.innerHTML = Object.entries(s.filters).map(([key, label]) =>
-        `<button class="filter-btn${key === currentFilter ? ' active' : ''}" data-filter="${key}">${label}</button>`
-      ).join("");
-      bar.querySelectorAll(".filter-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          currentFilter = btn.dataset.filter;
-          bar.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          renderGrid();
-        });
-      });
-
-      // Manifesto
-      document.getElementById("manifesto").innerHTML = s.manifesto.map(l =>
-        `<span class="comment">${l}</span>`
-      ).join("<br>");
-
-      document.getElementById("footerText").innerHTML = s.footer;
-
-      // Lang buttons
-      document.querySelectorAll(".lang-btn").forEach(b => {
-        b.classList.toggle("active", b.dataset.lang === currentLang);
-      });
-
-      renderGrid();
+  const i18n = {
+    en: {
+      mark: "Selected Work — 2026",
+      eyebrow: "Engineer · Montevideo, Uruguay",
+      lede: 'Ninety production web applications — <em>designed, built, and shipped end to end.</em> Every one is live, open source, and running on free infrastructure.',
+      stats: [["90","Applications shipped"],["100%","Live in production"],["4","Interface languages"],["$0","Monthly infrastructure"]],
+      search: "Search the index…",
+      all: "All",
+      cats: { ai:"AI", dev:"Developer tools", marketing:"Marketing", fun:"Interactive", tool:"Utilities", vision:"Computer vision" },
+      catShort: { ai:"AI", dev:"Dev tool", marketing:"Marketing", fun:"Interactive", tool:"Utility", vision:"Vision" },
+      count: (n,t) => `${n} of ${t}`,
+      demo: "Open", source: "Source",
+      empty: "Nothing matches that search.",
+      aboutH: "About this index",
+      aboutB: 'Each entry is an independent application with its own repository and deployment — not a monorepo of demos. They were built to explore how much working software can be produced under a hard constraint: one clear feature each, shipped rather than polished indefinitely.',
+      stackH: "Built with",
+      stackB: "Next.js and Vite · React · TypeScript · Groq inference · Supabase · Twilio · deployed on Vercel",
+      contactH: "Elsewhere",
+      contactB: 'All source is public on <a href="https://github.com/maxilylm" target="_blank" rel="noopener">GitHub</a>. Interface available in English, Spanish, Portuguese and French.'
+    },
+    es: {
+      mark: "Trabajos seleccionados — 2026",
+      eyebrow: "Ingeniero · Montevideo, Uruguay",
+      lede: 'Noventa aplicaciones web en producción — <em>diseñadas, construidas y desplegadas de punta a punta.</em> Todas están en línea, con código abierto y sobre infraestructura gratuita.',
+      stats: [["90","Aplicaciones publicadas"],["100%","En producción"],["4","Idiomas de interfaz"],["$0","Infraestructura mensual"]],
+      search: "Buscar en el índice…",
+      all: "Todas",
+      cats: { ai:"IA", dev:"Herramientas dev", marketing:"Marketing", fun:"Interactivas", tool:"Utilidades", vision:"Visión por computadora" },
+      catShort: { ai:"IA", dev:"Dev", marketing:"Marketing", fun:"Interactiva", tool:"Utilidad", vision:"Visión" },
+      count: (n,t) => `${n} de ${t}`,
+      demo: "Abrir", source: "Código",
+      empty: "No hay resultados para esa búsqueda.",
+      aboutH: "Sobre este índice",
+      aboutB: 'Cada entrada es una aplicación independiente, con su propio repositorio y despliegue — no es un monorepo de demos. Se construyeron para explorar cuánto software funcional se puede producir bajo una restricción estricta: una función clara cada uno, publicado en lugar de pulido indefinidamente.',
+      stackH: "Construido con",
+      stackB: "Next.js y Vite · React · TypeScript · inferencia Groq · Supabase · Twilio · desplegado en Vercel",
+      contactH: "En otros lados",
+      contactB: 'Todo el código es público en <a href="https://github.com/maxilylm" target="_blank" rel="noopener">GitHub</a>. Interfaz disponible en inglés, español, portugués y francés.'
+    },
+    pt: {
+      mark: "Trabalhos selecionados — 2026",
+      eyebrow: "Engenheiro · Montevidéu, Uruguai",
+      lede: 'Noventa aplicações web em produção — <em>projetadas, construídas e implantadas de ponta a ponta.</em> Todas estão no ar, com código aberto e sobre infraestrutura gratuita.',
+      stats: [["90","Aplicações publicadas"],["100%","Em produção"],["4","Idiomas de interface"],["$0","Infraestrutura mensal"]],
+      search: "Buscar no índice…",
+      all: "Todas",
+      cats: { ai:"IA", dev:"Ferramentas dev", marketing:"Marketing", fun:"Interativas", tool:"Utilitários", vision:"Visão computacional" },
+      catShort: { ai:"IA", dev:"Dev", marketing:"Marketing", fun:"Interativa", tool:"Utilitário", vision:"Visão" },
+      count: (n,t) => `${n} de ${t}`,
+      demo: "Abrir", source: "Código",
+      empty: "Nenhum resultado para essa busca.",
+      aboutH: "Sobre este índice",
+      aboutB: 'Cada entrada é uma aplicação independente, com seu próprio repositório e implantação — não é um monorepo de demos. Foram construídas para explorar quanto software funcional se pode produzir sob uma restrição rígida: uma função clara cada, publicado em vez de polido indefinidamente.',
+      stackH: "Construído com",
+      stackB: "Next.js e Vite · React · TypeScript · inferência Groq · Supabase · Twilio · implantado na Vercel",
+      contactH: "Em outros lugares",
+      contactB: 'Todo o código é público no <a href="https://github.com/maxilylm" target="_blank" rel="noopener">GitHub</a>. Interface disponível em inglês, espanhol, português e francês.'
+    },
+    fr: {
+      mark: "Travaux sélectionnés — 2026",
+      eyebrow: "Ingénieur · Montevideo, Uruguay",
+      lede: 'Quatre-vingt-dix applications web en production — <em>conçues, développées et déployées de bout en bout.</em> Toutes sont en ligne, open source et hébergées gratuitement.',
+      stats: [["90","Applications livrées"],["100%","En production"],["4","Langues d\'interface"],["0 $","Infrastructure mensuelle"]],
+      search: "Rechercher dans l\'index…",
+      all: "Toutes",
+      cats: { ai:"IA", dev:"Outils dev", marketing:"Marketing", fun:"Interactives", tool:"Utilitaires", vision:"Vision par ordinateur" },
+      catShort: { ai:"IA", dev:"Dev", marketing:"Marketing", fun:"Interactive", tool:"Utilitaire", vision:"Vision" },
+      count: (n,t) => `${n} sur ${t}`,
+      demo: "Ouvrir", source: "Code",
+      empty: "Aucun résultat pour cette recherche.",
+      aboutH: "À propos de cet index",
+      aboutB: 'Chaque entrée est une application indépendante, avec son propre dépôt et déploiement — pas un monorepo de démos. Elles ont été construites pour explorer la quantité de logiciel fonctionnel réalisable sous une contrainte stricte : une fonction claire chacune, livrée plutôt que peaufinée indéfiniment.',
+      stackH: "Construit avec",
+      stackB: "Next.js et Vite · React · TypeScript · inférence Groq · Supabase · Twilio · déployé sur Vercel",
+      contactH: "Ailleurs",
+      contactB: 'Tout le code est public sur <a href="https://github.com/maxilylm" target="_blank" rel="noopener">GitHub</a>. Interface disponible en anglais, espagnol, portugais et français.'
     }
+  };
 
-    function renderGrid() {
-      const s = t();
-      const grid = document.getElementById("grid");
-      const filtered = currentFilter === "all" ? ideas : ideas.filter(i => i.tag === currentFilter);
+  const LANGS = ["en","es","pt","fr"];
+  const store = {
+    get(k, d) { try { return localStorage.getItem(k) ?? d; } catch { return d; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch {} }
+  };
 
-      grid.innerHTML = filtered.map(idea => {
-        const loc = idea[currentLang] || idea.en;
-        return `
-        <a href="${idea.url}" target="_blank" rel="noopener" class="card" style="--card-accent: ${tagColors[idea.tag]}" data-tag="${idea.tag}">
-          <div class="card-header">
-            <span class="card-number">#${String(idea.n).padStart(2, '0')}</span>
-            <span class="card-tag tag-${idea.tag}">${s.tags[idea.tag]}</span>
-          </div>
-          <div class="card-title">${loc.name}™</div>
-          <div class="card-desc">${loc.desc}</div>
-          <div class="card-footer">
-            <span class="card-repo">${idea.repo}</span>
-            <span class="card-arrow">→</span>
-          </div>
-        </a>`;
-      }).join("");
-    }
+  const nav0 = (navigator.language || "en").slice(0,2);
+  let lang = store.get("mlx-lang", LANGS.includes(nav0) ? nav0 : "en");
+  if (!LANGS.includes(lang)) lang = "en";
+  let cat = "all";
+  let query = "";
 
-    // Lang switcher
-    document.getElementById("langSwitcher").addEventListener("click", e => {
-      const btn = e.target.closest(".lang-btn");
-      if (!btn) return;
-      currentLang = btn.dataset.lang;
-      localStorage.setItem("slop-lang", currentLang);
-      applyLang();
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+  const T = () => i18n[lang] || i18n.en;
+
+  /* ── theme ── */
+  function applyTheme(mode) {
+    if (mode === "system") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", mode);
+    const dark = mode === "dark" || (mode === "system" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
+    $("themeIcon").setAttribute("d", dark
+      ? "M12 4v1.5M12 18.5V20M4 12h1.5M18.5 12H20M6.3 6.3l1.1 1.1M16.6 16.6l1.1 1.1M17.7 6.3l-1.1 1.1M7.4 16.6l-1.1 1.1M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"
+      : "M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z");
+  }
+  let theme = store.get("mlx-theme", "system");
+  applyTheme(theme);
+  $("themeBtn").addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark" ||
+      (!document.documentElement.hasAttribute("data-theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
+    theme = isDark ? "light" : "dark";
+    store.set("mlx-theme", theme);
+    applyTheme(theme);
+  });
+
+  /* ── chrome ── */
+  function paintChrome() {
+    const s = T();
+    document.documentElement.lang = lang;
+    $("mark").textContent = s.mark;
+    $("eyebrow").textContent = s.eyebrow;
+    $("lede").innerHTML = s.lede;
+    $("q").placeholder = s.search;
+    $("q").setAttribute("aria-label", s.search);
+    $("empty").textContent = s.empty;
+
+    $("stats").innerHTML = s.stats.map(([n,l]) =>
+      `<div class="stat"><span class="stat-n">${esc(n)}</span><span class="stat-l">${esc(l)}</span></div>`
+    ).join("");
+
+    $("langSeg").innerHTML = LANGS.map(l =>
+      `<button type="button" data-lang="${l}" aria-pressed="${l===lang}">${l}</button>`
+    ).join("");
+
+    $("filters").innerHTML =
+      `<button class="fbtn" type="button" data-cat="all" aria-pressed="${cat==="all"}">${esc(s.all)}</button>` +
+      CATS.map(c => `<button class="fbtn" type="button" data-cat="${c}" aria-pressed="${cat===c}">${esc(s.cats[c])}</button>`).join("");
+
+    $("cAboutH").textContent = s.aboutH;   $("cAboutB").innerHTML = s.aboutB;
+    $("cStackH").textContent = s.stackH;   $("cStackB").textContent = s.stackB;
+    $("cContactH").textContent = s.contactH; $("cContactB").innerHTML = s.contactB;
+  }
+
+  /* ── list ── */
+  function paintList() {
+    const s = T();
+    const q = query.trim().toLowerCase();
+    const rows = ideas.filter(it => {
+      if (cat !== "all" && it.tag !== cat) return false;
+      if (!q) return true;
+      const loc = it[lang] || it.en;
+      return (loc.name + " " + loc.title + " " + loc.desc + " " + it.repo).toLowerCase().includes(q);
     });
 
-    // Boot
-    applyLang();
-  </script>
-  <script src="https://su-slopads.vercel.app/api/promo.js" defer></script>
+    $("count").textContent = s.count(rows.length, ideas.length);
+    $("empty").hidden = rows.length > 0;
+
+    $("list").innerHTML = rows.map((it, i) => {
+      const loc = it[lang] || it.en;
+      return `<li class="row" style="--card-accent:${catVar[it.tag]}">
+        <div class="row-inner">
+          <span class="r-num">${String(it.n).padStart(2,"0")}</span>
+          <h2 class="r-name">${esc(loc.name)}<span class="r-cat">${esc(s.catShort[it.tag])}</span></h2>
+          <p class="r-desc">${esc(loc.desc)}</p>
+          <span class="r-links">
+            <a class="r-link primary" href="${esc(it.url)}" target="_blank" rel="noopener">${esc(s.demo)} ↗</a>
+            <a class="r-link" href="https://github.com/maxilylm/${esc(it.repo)}" target="_blank" rel="noopener">${esc(s.source)}</a>
+          </span>
+        </div>
+      </li>`;
+    }).join("");
+
+  }
+
+  /* ── events ── */
+  $("langSeg").addEventListener("click", e => {
+    const b = e.target.closest("[data-lang]"); if (!b) return;
+    lang = b.dataset.lang; store.set("mlx-lang", lang); paintChrome(); paintList();
+  });
+
+  $("filters").addEventListener("click", e => {
+    const b = e.target.closest("[data-cat]"); if (!b) return;
+    cat = b.dataset.cat;
+    $("filters").querySelectorAll("[data-cat]").forEach(x =>
+      x.setAttribute("aria-pressed", String(x.dataset.cat === cat)));
+    paintList();
+  });
+
+  let tId;
+  $("q").addEventListener("input", e => {
+    query = e.target.value;
+    clearTimeout(tId); tId = setTimeout(paintList, 110);
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "/" && document.activeElement !== $("q")) { e.preventDefault(); $("q").focus(); }
+    if (e.key === "Escape" && document.activeElement === $("q")) { $("q").value = ""; query = ""; paintList(); $("q").blur(); }
+  });
+
+  paintChrome();
+  paintList();
+</script>
 </body>
 </html>
