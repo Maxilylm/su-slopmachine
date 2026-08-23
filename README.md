@@ -1,25 +1,26 @@
-# The Slop Machine
+# Selected Work — Index
 
-> A single-page index of every app produced by an automated startup-idea loop.
+> The portfolio index for 90 independently built and deployed web applications.
 
 **[Live demo](https://su-slopmachine.vercel.app)**
 
-An autonomous agent loop keeps generating, building, and deploying small web apps, which leaves the problem of where they all live. The Slop Machine is the directory: one static HTML page holding a hardcoded array of 90 entries, each rendered as a card with its number, trademarked product name, one-line description, category tag, repo name, and a link to the live deployment. Every entry carries its name, title, and description in four languages, so switching language re-renders the whole grid rather than just the chrome.
+Each of the 90 apps in this series lives in its own repository with its own Vercel deployment, which leaves the problem of where they are collectively presented. This is that page: a single static HTML document, laid out as an editorial catalogue rather than a card grid. Every entry carries its product name, description, and category in four languages, so switching language re-renders the entries themselves and not just the surrounding chrome.
 
 ## Features
 
-- Grid of 90 deployed apps, each card linking straight to its live Vercel URL
-- Category filter bar — All, AI-Powered, Dev Tools, Marketing, Fun & Viral, Utilities, Vision AI — with per-tag accent colors
-- Full four-language UI (English, Spanish, Portuguese, French) covering headings, filters, tags, and every app description
-- Language auto-detected from `navigator.language` and remembered in `localStorage`
-- Dark theme with a header stat block (app count, $0 budget) and a manifesto footer
-- Responsive card grid that collapses to a single column on mobile
+- Catalogue of 90 apps, each row linking to both the live deployment and its public source
+- Live client-side search across names, titles, descriptions and repo slugs — press `/` to focus, `Esc` to clear
+- Category filters: AI, developer tools, marketing, utilities, computer vision, interactive
+- Four-language interface (English, Spanish, Portuguese, French), auto-detected from `navigator.language` and remembered in `localStorage`
+- Light and dark themes that follow the system preference, with a manual toggle that persists
+- Keyboard accessible throughout, with skip link, visible focus rings, and `prefers-reduced-motion` support
 
 ## Stack
 
-- Vite (static build, no framework)
-- Vanilla JavaScript in a single `index.html` — zero runtime dependencies
-- Hand-written CSS with custom properties for theming
+- Vite (static build, no UI framework)
+- Vanilla JavaScript — the app dataset is a hardcoded array in `index.html`
+- Fraunces and IBM Plex Sans/Mono via Google Fonts
+- Deployed on Vercel
 
 ## Running locally
 
@@ -28,6 +29,8 @@ npm install
 npm run dev
 ```
 
+No environment variables are required — the page is fully static.
+
 ---
 
-Part of a series of 91 small web apps. [Browse them all](https://su-slopmachine.vercel.app).
+Part of a series of 90 small web apps. [Browse them all](https://su-slopmachine.vercel.app).
