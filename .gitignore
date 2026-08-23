@@ -5,3 +5,7 @@ dist
 .status
 .attempts
 .vercel
+node_modules/
+dist/
+.next/
+.claude/
